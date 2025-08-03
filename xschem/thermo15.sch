@@ -145,3 +145,7 @@ C {lab_pin.sym} 80 -1320 0 0 {name=p1 sig_type=std_logic lab=d[0]}
 C {lab_pin.sym} 80 -1280 0 0 {name=p5 sig_type=std_logic lab=d[1]}
 C {lab_pin.sym} 80 -1040 0 0 {name=p6 sig_type=std_logic lab=d[2]}
 C {lab_pin.sym} 80 -700 0 0 {name=p25 sig_type=std_logic lab=d[3]}
+C {lab_pin.sym} 80 -580 0 1 {name=p26 sig_type=std_logic lab=VPWR}
+C {lab_pin.sym} 80 -560 0 1 {name=p27 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 80 -540 0 1 {name=p28 sig_type=std_logic lab=VPB}
+C {lab_pin.sym} 80 -520 0 1 {name=p29 sig_type=std_logic lab=VNB}

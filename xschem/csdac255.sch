@@ -45,8 +45,7 @@ C {thermo15.sym} 530 -420 0 0 {name=x1}
 C {array255x.sym} 910 -360 0 0 {name=x2}
 C {thermo15.sym} 530 -280 0 0 {name=x3}
 C {iopin.sym} 100 -600 0 1 {name=p1 lab=VPWR}
-C {opin.sym} 140 -600 0 0 {name=p3 lab=Iout}
-C {lab_pin.sym} 820 -150 0 1 {name=p4 sig_type=std_logic lab=Vbias}
+C {opin.sym} 1060 -340 0 0 {name=p3 lab=Iout}
 C {iopin.sym} 100 -580 0 1 {name=p5 lab=VGND}
 C {devices/lab_pin.sym} 240 -500 0 0 {name=p2 sig_type=std_logic lab=VPWR}
 C {sky130_fd_pr/nfet_01v8.sym} 140 -150 0 1 {name=Mmirror
@@ -115,7 +114,6 @@ spiceprefix=X
 }
 C {lab_pin.sym} 120 -80 0 0 {name=p6 sig_type=std_logic lab=VGND}
 C {ipin.sym} 100 -540 0 0 {name=p7 lab=bias[2:0]}
-C {lab_pin.sym} 1060 -340 0 1 {name=p11 sig_type=std_logic lab=Iout}
 C {ipin.sym} 100 -640 0 0 {name=p12 lab=data[7:0]}
 C {lab_pin.sym} 380 -460 0 0 {name=p13 sig_type=std_logic lab=data[7:4]}
 C {lab_pin.sym} 380 -320 0 0 {name=p14 sig_type=std_logic lab=data[3:0]}
@@ -129,6 +127,6 @@ C {lab_pin.sym} 680 -280 0 1 {name=p22 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 680 -260 0 1 {name=p23 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 1060 -380 0 1 {name=p24 sig_type=std_logic lab=VPWR}
 C {lab_pin.sym} 1060 -360 0 1 {name=p25 sig_type=std_logic lab=VGND}
-C {opin.sym} 140 -580 0 0 {name=p26 lab=Vbias}
+C {opin.sym} 820 -150 0 0 {name=p26 lab=Vbias}
 C {lab_pin.sym} 760 -420 0 1 {name=p10 sig_type=std_logic lab=THERMO_ROWn[14:0]}
 C {lab_pin.sym} 780 -240 0 1 {name=p27 sig_type=std_logic lab=THERMO_COLn[14:0]}

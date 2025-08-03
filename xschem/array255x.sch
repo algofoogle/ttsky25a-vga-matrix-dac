@@ -40,3 +40,4 @@ C {lab_pin.sym} 640 -180 0 1 {name=p24 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 490 -230 0 0 {name=p25 sig_type=std_logic lab=Cn[14:0]}
 C {lab_pin.sym} 340 -160 0 0 {name=p26 sig_type=std_logic lab=Rn[14]}
 C {lab_pin.sym} 340 -400 0 0 {name=p27 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 100 -230 0 0 {name=p28 sig_type=std_logic lab=Iout}

@@ -38,21 +38,20 @@ node="vout
 vbias
 \\"nom mA;i(vvccnom) 1000 *\\"
 \\"out mA;i(vcurrent) 1000 *\\""
-y1=-0.12
-y2=3.4
-x1=1.0228446e-05
-x2=1.0339026e-05}
-T {TT_MODELS is set to use
-'tt_mm' (for Monte Carlo)
-instead of just 'tt'.
-Use 'repeat' >1
-in COMMANDS2 to make
-use of this.} 400 -670 0 0 0.3 0.3 {}
+y1=-0.14
+y2=6
+x1=0
+x2=1.28e-05}
+T {Set TT_MODELS to 'tt_mm'
+for Monte Carlo instead
+of just 'tt', and use
+'repeat' >1 in COMMANDS2
+to make use of this.} 400 -670 0 0 0.3 0.3 {}
 T {Introduce random variation
 in VCC for Monte Carlo by
 setting power supply to:
 
-1.8 trrandom(1 15us 0s 100mV 0mV)} 760 -630 0 0 0.3 0.3 {}
+1.8 trrandom(1 15us 0s 100mV 0mV)} 780 -640 0 0 0.3 0.3 {}
 T {*** Could try 3.3V transistors to maintain better range AND drive} 190 -810 0 0 0.5 0.5 {}
 N 1000 -460 1020 -460 {
 lab=a3v3}
@@ -71,9 +70,9 @@ N 700 -290 700 -270 {lab=a3v3}
 N 880 -460 940 -460 {lab=#net3}
 N 880 -460 880 -440 {lab=#net3}
 C {csdac255.sym} 430 -300 0 0 {name=x1}
-C {devices/vsource.sym} 700 -590 0 0 {name=Vvcc1 value="1.8" savecurrent=false}
-C {devices/lab_pin.sym} 700 -620 0 0 {name=p1 sig_type=std_logic lab=vcc1}
-C {devices/gnd.sym} 700 -560 0 0 {name=l2 lab=GND}
+C {devices/vsource.sym} 720 -600 0 0 {name=Vvcc1 value="1.8" savecurrent=false}
+C {devices/lab_pin.sym} 720 -630 0 0 {name=p1 sig_type=std_logic lab=vcc1}
+C {devices/gnd.sym} 720 -570 0 0 {name=l2 lab=GND}
 C {devices/simulator_commands.sym} 280 -660 0 1 {name=COMMANDS2
 simulator=ngspice
 only_toplevel=false 
@@ -117,27 +116,23 @@ Vxn6 DATAn[6] GND pulse 0v 1.8v 0n 1n 1n 2559n 5120n
 Vxn7 DATAn[7] GND pulse 0v 1.8v 0n 1n 1n 5119n 10240n
 .ENDIF
 
-.options savecurrents
+*.options savecurrents
 .control
+	repeat 10
 
-    save all
-    tran 0.1n 12.8u
-    write tb_csdac255.raw i(vvss) vcc1 vbias vout i(vvccnom) i(vcurrent) i(viout)
-    * + v("DATA[0]") v("DATA[1]") v("DATA[2]") v("DATA[3]") v("DATA[4]") v("DATA[5]") v("DATA[6]") v("DATA[7]")
-
+		save i(vvss) vcc1 vbias vout i(vvccnom) i(vcurrent) i(viout)
+		tran 0.1n 12.8u
+		*12.8u
+		write tb_csdac255.raw i(vvss) vcc1 vbias vout i(vvccnom) i(vcurrent) i(viout)
+		* + v("DATA[0]") v("DATA[1]") v("DATA[2]") v("DATA[3]") v("DATA[4]") v("DATA[5]") v("DATA[6]") v("DATA[7]")
+		set appendwrite
+		reset
+	end
 .endc
 "}
-C {devices/gnd.sym} 620 -560 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} 620 -590 0 0 {name=Vvss value=0 savecurrent=false}
-C {devices/lab_pin.sym} 620 -620 0 0 {name=p42 sig_type=std_logic lab=vss}
-C {devices/code.sym} 280 -660 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-.include $::SKYWATER_STDCELLS/sky130_fd_sc_hd.spice
-"
-spice_ignore=false}
+C {devices/gnd.sym} 640 -570 0 0 {name=l6 lab=GND}
+C {devices/vsource.sym} 640 -600 0 0 {name=Vvss value=0 savecurrent=false}
+C {devices/lab_pin.sym} 640 -630 0 0 {name=p42 sig_type=std_logic lab=vss}
 C {devices/vsource.sym} 900 -160 0 0 {name=Vvccnom value=0 savecurrent=false}
 C {devices/lab_pin.sym} 900 -130 0 0 {name=p49 sig_type=std_logic lab=vcc_nom}
 C {devices/lab_pin.sym} 900 -190 0 0 {name=p51 sig_type=std_logic lab=vcc1}
@@ -186,9 +181,17 @@ value=1m
 footprint=1206
 device=resistor
 m=1}
-C {devices/vsource.sym} 620 -470 0 0 {name=Va3v3 value="3.3" savecurrent=false}
-C {devices/gnd.sym} 620 -440 0 0 {name=l3 lab=GND}
-C {devices/lab_pin.sym} 620 -500 0 1 {name=p12 sig_type=std_logic lab=a3v3}
+C {devices/vsource.sym} 640 -480 0 0 {name=Va3v3 value="3.3" savecurrent=false}
+C {devices/gnd.sym} 640 -450 0 0 {name=l3 lab=GND}
+C {devices/lab_pin.sym} 640 -510 0 1 {name=p12 sig_type=std_logic lab=a3v3}
 C {tt_pin_model.sym} 790 -310 0 0 {name=x2}
 C {devices/gnd.sym} 880 -290 0 0 {name=l4 lab=vss}
 C {devices/lab_pin.sym} 700 -270 0 0 {name=p13 sig_type=std_logic lab=a3v3}
+C {devices/code.sym} 280 -660 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value=".lib $::SKYWATER_MODELS/sky130.lib.spice tt_mm
+
+.include $::SKYWATER_STDCELLS/sky130_fd_sc_hd.spice
+"
+spice_ignore=false}
