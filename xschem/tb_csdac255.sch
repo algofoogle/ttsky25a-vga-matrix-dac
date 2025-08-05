@@ -16,7 +16,6 @@ xlabmag=0.5
 ylabmag=1
 
 
-dataset=-1
 unitx=1
 logx=0
 logy=0
@@ -33,30 +32,31 @@ rainbow=1
 
 
 
-color="11 10 6 8"
+color="7 7 7 7"
 node="vout
 vbias
-\\"nom mA;i(vvccnom) 1000 *\\"
-\\"out mA;i(viout) 1000 *\\""
-y1=-0.00038
+\\"nom mA;i(xvvccnom) 1000 *\\"
+\\"out mA;i(xviout) 1000 *\\""
+y1=0.73
 y2=3.4
 x1=0
-x2=1.28e-05}
-N 293.2401185021193 -650 293.2401185021193 -630 {lab=#net1}
-N 293.2401185021193 -730 293.2401185021193 -710 {lab=VAPWR}
-N 293.2401185021193 -570 293.2401185021193 -550 {lab=Vout}
-N 293.2401185021193 -550 413.2401185021193 -550 {lab=Vout}
-N 413.2401185021193 -550 443.2401185021193 -550 {lab=Vout}
-N 23.24011850211936 -550 113.2401185021194 -550 {lab=#net2}
-N 23.24011850211936 -550 23.24011850211936 -460 {lab=#net2}
-N 23.24011850211936 -460 373.2401185021193 -460 {lab=#net2}
-N 373.2401185021193 -460 373.2401185021193 -430 {lab=#net2}
-C {devices/vsource.sym} 73.24011850211936 -730 0 0 {name=Vvcc value="1.8" savecurrent=false}
-C {devices/gnd.sym} 73.24011850211936 -600 0 0 {name=l2 lab=GND}
-C {lab_pin.sym} 73.24011850211936 -760 0 0 {name=p1 sig_type=std_logic lab=VPWR}
-C {devices/vsource.sym} 193.2401185021193 -730 0 0 {name=Vvpu value="3.3" savecurrent=false}
-C {lab_pin.sym} 193.2401185021193 -760 0 0 {name=p5 sig_type=std_logic lab=VAPWR}
-C {devices/simulator_commands.sym} 13.24011850211936 -910 0 0 {name=COMMANDS2
+x2=1.28e-05
+dataset=-1}
+N 410 -650 410 -630 {lab=#net1}
+N 410 -730 410 -710 {lab=VAPWR}
+N 410 -570 410 -550 {lab=Vout}
+N 20 -550 110 -550 {lab=#net2}
+N 20 -550 20 -440 {lab=#net2}
+N 20 -440 370 -440 {lab=#net2}
+N 370 -440 370 -410 {lab=#net2}
+N 290 -550 440 -550 {lab=Vout}
+N 150 -390 150 -340 {lab=#net3}
+C {devices/vsource.sym} 70 -730 0 0 {name=Vvcc value="1.8" savecurrent=false}
+C {devices/gnd.sym} 70 -600 0 0 {name=l2 lab=GND}
+C {lab_pin.sym} 70 -760 0 0 {name=p1 sig_type=std_logic lab=VPWR}
+C {devices/vsource.sym} 190 -730 0 0 {name=Vvpu value="3.3" savecurrent=false}
+C {lab_pin.sym} 190 -760 0 0 {name=p5 sig_type=std_logic lab=VAPWR}
+C {devices/simulator_commands.sym} 0 -910 0 0 {name=COMMANDS2
 simulator=ngspice
 only_toplevel=false 
 value="
@@ -94,13 +94,14 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 
 *.options savecurrents
 .control
+	let biaslevel=0
 	foreach bv2 1.8 0
 		alterparam bias2 = $bv2
 		foreach bv1 1.8 0
 			alterparam bias1 = $bv1
 			foreach bv0 1.8 0
 				alterparam bias0 = $bv0
-				echo Bias level: $bv2 $bv1 $bv0
+				echo Bias level $&biaslevel = $bv2 $bv1 $bv0
 				save
 				+ data[0] data[1] data[2] data[3] data[4] data[5] data[6] data[7]
 				+ bias[0] bias[1] bias[2]
@@ -109,17 +110,18 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 				+ i(vvcc)
 				+ i(vvpu)
 				+ i(vvgnd)
-				tran 0.2n 12.8u
+				tran 0.25ns 12.8u
 				write tb_csdac255.raw vbias vout i(viout) i(vvgnd) i(vvcc) i(vvpu)
 				*plot vout vbias i(viout)*1000
 				set appendwrite
 				reset
+				let biaslevel = biaslevel + 1
 			end
 		end
 	end
 .endc
 "}
-C {devices/code.sym} 133.2401185021193 -910 0 0 {name=TT_MODELS
+C {devices/code.sym} 130 -910 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -127,34 +129,39 @@ value="
 .include $::SKYWATER_STDCELLS/sky130_fd_sc_hd.spice
 "
 spice_ignore=false}
-C {lab_pin.sym} 73.24011850211936 -660 0 0 {name=p7 sig_type=std_logic lab=VGND}
-C {devices/vsource.sym} 73.24011850211936 -630 0 0 {name=Vvgnd value="0" savecurrent=false}
-C {csdac255.sym} 263.2401185021193 -400 0 0 {name=x1}
-C {lab_pin.sym} 443.2401185021193 -550 0 1 {name=p2 sig_type=std_logic lab=Vout}
-C {lab_pin.sym} 153.2401185021193 -430 0 0 {name=p4 sig_type=std_logic lab=DATA[7:0]}
-C {lab_pin.sym} 373.2401185021193 -410 0 1 {name=p9 sig_type=std_logic lab=VPWR}
-C {lab_pin.sym} 373.2401185021193 -390 0 1 {name=p11 sig_type=std_logic lab=VGND}
-C {lab_pin.sym} 373.2401185021193 -370 0 1 {name=p12 sig_type=std_logic lab=Vbias}
-C {tt_pin_model.sym} 203.2401185021193 -530 0 0 {name=x2}
-C {lab_pin.sym} 113.2401185021194 -510 0 0 {name=p13 sig_type=std_logic lab=VAPWR}
-C {lab_pin.sym} 293.2401185021193 -510 0 1 {name=p14 sig_type=std_logic lab=VGND}
-C {res.sym} 293.2401185021193 -600 0 0 {name=R2
+C {lab_pin.sym} 70 -660 0 0 {name=p7 sig_type=std_logic lab=VGND}
+C {devices/vsource.sym} 70 -630 0 0 {name=Vvgnd value="0" savecurrent=false}
+C {csdac255.sym} 260 -380 0 0 {name=x1}
+C {lab_pin.sym} 440 -550 0 1 {name=p2 sig_type=std_logic lab=Vout}
+C {lab_pin.sym} 150 -410 0 0 {name=p4 sig_type=std_logic lab=DATA[7:0]}
+C {lab_pin.sym} 370 -390 0 1 {name=p9 sig_type=std_logic lab=VPWR}
+C {lab_pin.sym} 370 -370 0 1 {name=p11 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 370 -350 0 1 {name=p12 sig_type=std_logic lab=Vbias}
+C {tt_pin_model.sym} 200 -530 0 0 {name=x2}
+C {lab_pin.sym} 110 -510 0 0 {name=p13 sig_type=std_logic lab=VAPWR}
+C {lab_pin.sym} 290 -510 0 1 {name=p14 sig_type=std_logic lab=VGND}
+C {res.sym} 410 -600 0 0 {name=R2
 value=500
 footprint=1206
 device=resistor
 m=1}
-C {devices/vsource.sym} 293.2401185021193 -680 0 0 {name=Viout value="0" savecurrent=false}
-C {lab_pin.sym} 293.2401185021193 -730 0 1 {name=p15 sig_type=std_logic lab=VAPWR}
-C {devices/capa.sym} 393.2401185021193 -520 0 0 {name=C1
+C {devices/vsource.sym} 410 -680 0 0 {name=Viout value="0" savecurrent=false}
+C {lab_pin.sym} 410 -730 0 1 {name=p15 sig_type=std_logic lab=VAPWR}
+C {devices/capa.sym} 370 -520 0 0 {name=C1
 m=1
 value=3p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/gnd.sym} 393.2401185021193 -490 0 0 {name=l5 lab=VGND}
-C {devices/lab_pin.sym} 153.2401185021193 -410 0 0 {name=p20 sig_type=std_logic lab=bias[2:0]}
-C {devices/gnd.sym} 193.2401185021193 -700 0 0 {name=l1 lab=VGND}
-C {devices/gnd.sym} 73.24011850211936 -700 0 0 {name=l3 lab=VGND}
+C {devices/gnd.sym} 370 -490 0 0 {name=l5 lab=VGND}
+C {devices/lab_pin.sym} 90 -340 0 0 {name=p20 sig_type=std_logic lab=bias[2:0]}
+C {devices/gnd.sym} 190 -700 0 0 {name=l1 lab=VGND}
+C {devices/gnd.sym} 70 -700 0 0 {name=l3 lab=VGND}
 C {devices/launcher.sym} 560 -30 0 0 {name=h2
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_csdac255.raw tran"
 }
+C {res.sym} 120 -340 1 0 {name=Rbias[2:0]
+value=10k
+footprint=1206
+device=resistor
+m=1}
