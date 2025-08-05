@@ -9,7 +9,7 @@ T {1st row always enabled for column-select} 140 -390 0 0 0.2 0.2 {}
 T {1st row Select-all for R>0} 160 -420 0 0 0.2 0.2 {}
 T {Select-all lags 1 row} 160 -300 0 0 0.2 0.2 {}
 T {*** REMEMBER ***
-Cn, Rn, Sn are active-low} 80 -520 0 0 0.2 0.2 {}
+Cn, Rn, Sn are active-low} 50 -490 0 0 0.2 0.2 {}
 C {row15x.sym} 490 -290 0 0 {name=XIR[14:1]}
 C {iopin.sym} 120 -410 0 1 {name=p2 lab=VPWR}
 C {opin.sym} 100 -230 0 0 {name=p3 lab=Iout}

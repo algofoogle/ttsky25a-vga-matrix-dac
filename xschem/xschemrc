@@ -54,7 +54,7 @@ set dircolor(devices$) red
 #### Start without a design if no filename given on command line:
 #### To avoid absolute paths, use a path that is relative to one of the
 #### XSCHEM_LIBRARY_PATH directories. Default: empty
-set XSCHEM_START_WINDOW {sky130_tests/top.sch}
+set XSCHEM_START_WINDOW {tb_csdac255.sch}
 
 ###########################################################################
 #### DIRECTORY WHERE SIMULATIONS, NETLIST AND SIMULATOR OUTPUTS ARE PLACED
@@ -63,7 +63,7 @@ set XSCHEM_START_WINDOW {sky130_tests/top.sch}
 # set netlist_dir $env(HOME)/.xschem/simulations
 #### if this is set to '1' netlists and simulations will go into a simulation/ folder
 #### inside the directory containing the top level schematic. Default: not set (0)
-# set local_netlist_dir 1
+set local_netlist_dir 1
 
 ###########################################################################
 #### NETLIST AND HIERARCHICAL PRINT EXCLUDE PATTERNS
@@ -119,7 +119,6 @@ set XSCHEM_START_WINDOW {sky130_tests/top.sch}
 #### initial size of xschem window you can specify also position with (wxh+x+y)
 #### this is the default:
 # set initial_geometry {900x600}
-set initial_geometry {1280x695+0+0}
 
 #### if set to 0, when zooming out allow the viewport do drift toward the mouse position,
 #### allowing to move away by zooming / unzooming with mouse wheel
@@ -337,7 +336,7 @@ set bespice_listen_port 2022
 ###########################################################################
 #### list of tcl files to preload.
 set tcl_files {}
-# lappend tcl_files ${XSCHEM_SHAREDIR}/ngspice_backannotate.tcl
+lappend tcl_files ${XSCHEM_SHAREDIR}/ngspice_backannotate.tcl
 # lappend tcl_files ${XSCHEM_SHAREDIR}/change_index.tcl
 # lappend tcl_files ....
 
@@ -425,82 +424,19 @@ if {[info exists PDK_ROOT]} {
   } else {
     set PDK sky130A
   }
-  # set SKYWATER_MODELS ${PDK_ROOT}/${PDK}/libs.tech/ngspice
-  set SKYWATER_MODELS ${PDK_ROOT}/${PDK}/libs.tech/combined
+  set SKYWATER_MODELS ${PDK_ROOT}/${PDK}/libs.tech/ngspice
   set SKYWATER_STDCELLS ${PDK_ROOT}/${PDK}/libs.ref/sky130_fd_sc_hd/spice
   puts stderr "open_pdks installation: using $PDK_ROOT"
   puts stderr "SKYWATER_MODELS: $SKYWATER_MODELS"
   puts stderr "SKYWATER_STDCELLS: $SKYWATER_STDCELLS"
 }
 
-# sky130 mosfets dimension checks
-proc fet_drc {instance symbol model w l {nf 1}} {
-  set res {}
-  # puts "$instance $model $symbol w=$w l=$l nf=$nf"
-  if { [string is double $w] && [string is double $l] && [string is integer $nf]} {
-    # not *_nf.sym devices: get single finger width
-    if {![regexp {fet.*_nf\.sym$} $symbol]} {
-      set w [expr { double($w) / double($nf)}]
-    }
-    switch -regexp $model {
-      {[np]fet_01v8$} {
-        if { $w < 0.42 } {
-          append res "${instance} ($model): finger width is too small, w / nf = $w" \n
-        }
-        if { $l < 0.15 } {
-          append res "${instance} ($model): length is too small, l = $l" \n
-        }
-      }
-      {pfet_01v8_lvt$} {
-        if { $w < 0.42 } {
-          append res "${instance} ($model): finger width is too small, w / nf = $w" \n
-        }
-        if { $l < 0.35 } {
-          append res "${instance} ($model): length is too small, l = $l" \n
-        }
-      }
-      {nfet_01v8_lvt$} {
-        if { $w < 0.42 } {
-          append res "${instance} ($model): finger width is too small, w / nf = $w" \n
-        }
-        if { $l < 0.15 } {
-          append res "${instance} ($model): length is too small, l = $l" \n
-        }
-      }
-      {[np]fet_g5v0d10v5$} {
-        if { $w < 0.42 } {
-          append res "${instance} ($model): finger width is too small, w / nf = $w" \n
-        }
-        if { $l < 0.5 } {
-          append res "${instance} ($model): length is too small, l = $l" \n
-        }
-      }
-      {pfet_g5v0d16v0$} {
-        if { $w < 5 } {
-          append res "${instance} ($model): finger width is too small, w / nf = $w" \n
-        }
-        if { $l < 0.66 } {
-          append res "${instance} ($model): length is too small, l = $l" \n
-        }
-      }
-      {nfet_g5v0d16v0$} {
-        if { $w < 5 } {
-          append res "${instance} ($model): finger width is too small, w / nf = $w" \n
-        }
-        if { $l < 0.7 } {
-          append res "${instance} ($model): length is too small, l = $l" \n
-        }
-      }
-    } ;# switch
-  }
-  return $res
-}
 
 # open_pdks specific:
 # Set variables after ${PDK_ROOT} is known
 # This overrides some of the variables set above.
 
-set XSCHEM_START_WINDOW ${PDK_ROOT}/${PDK}/libs.tech/xschem/sky130_tests/top.sch
+#set XSCHEM_START_WINDOW ${PDK_ROOT}/${PDK}/libs.tech/xschem/sky130_tests/top.sch
 append XSCHEM_LIBRARY_PATH :${PDK_ROOT}/${PDK}/libs.tech/xschem
 
 # allow a user-specific path add-on (https://github.com/iic-jku/iic-osic-tools/issues/7)
