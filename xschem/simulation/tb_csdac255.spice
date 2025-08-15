@@ -49,13 +49,15 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 
 *.options savecurrents
 .control
-	let biaslevel=0
-	foreach bv2 1.8 0
-		alterparam bias2 = $bv2
-		foreach bv1 1.8 0
-			alterparam bias1 = $bv1
-			foreach bv0 1.8 0
+	* Start with all bias[*] switches at 0V (ENb), so highest Vbias (max current sink):
+	let biaslevel=7
+	foreach bv2 0 1.8
+		foreach bv1 0 1.8
+			foreach bv0 0 1.8
+				alterparam bias2 = $bv2
+				alterparam bias1 = $bv1
 				alterparam bias0 = $bv0
+				reset
 				echo Bias level $&biaslevel = $bv2 $bv1 $bv0
 				save
 				+ data[0] data[1] data[2] data[3] data[4] data[5] data[6] data[7]
@@ -65,12 +67,12 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 				+ i(vvcc)
 				+ i(vvpu)
 				+ i(vvgnd)
-				tran 0.25ns 12.8u
+				tran 0.25n 12.8u
 				write tb_csdac255.raw vbias vout i(viout) i(vvgnd) i(vvcc) i(vvpu)
 				*plot vout vbias i(viout)*1000
 				set appendwrite
 				reset
-				let biaslevel = biaslevel + 1
+				let biaslevel = biaslevel - 1
 			end
 		end
 	end
@@ -146,34 +148,34 @@ C5 mod VGND 250f m=1
 *.iopin VPB
 *.iopin VNB
 *.opin Tn[14],Tn[13],Tn[12],Tn[11],Tn[10],Tn[9],Tn[8],Tn[7],Tn[6],Tn[5],Tn[4],Tn[3],Tn[2],Tn[1],Tn[0]
-x1 d[1] VGND VNB VPB VPWR net3 sky130_fd_sc_hd__inv_1
-x2 net5 VGND VNB VPB VPWR net6 sky130_fd_sc_hd__inv_2
-x3 d[0] d[1] VGND VNB VPB VPWR net4 sky130_fd_sc_hd__nand2_1
-x4 d[0] d[1] VGND VNB VPB VPWR net2 sky130_fd_sc_hd__nor2_1
-x5 d[2] VGND VNB VPB VPWR net1 sky130_fd_sc_hd__inv_1
-x6 net2 net1 VGND VNB VPB VPWR net7 sky130_fd_sc_hd__nand2_1
-x7 net3 net1 VGND VNB VPB VPWR net8 sky130_fd_sc_hd__nand2_1
-x8 net4 net1 VGND VNB VPB VPWR net9 sky130_fd_sc_hd__nand2_1
-x9 net1 VGND VNB VPB VPWR net10 sky130_fd_sc_hd__inv_1
-x10 net2 net1 VGND VNB VPB VPWR net11 sky130_fd_sc_hd__nor2_1
-x11 net3 net1 VGND VNB VPB VPWR net12 sky130_fd_sc_hd__nor2_1
-x12 net4 net1 VGND VNB VPB VPWR net13 sky130_fd_sc_hd__nor2_1
-x13 net7 net6 VGND VNB VPB VPWR Tn[0] sky130_fd_sc_hd__nor2_4
-x14 net8 net6 VGND VNB VPB VPWR Tn[1] sky130_fd_sc_hd__nor2_4
-x15 net9 net6 VGND VNB VPB VPWR Tn[2] sky130_fd_sc_hd__nor2_4
-x16 net10 net6 VGND VNB VPB VPWR Tn[3] sky130_fd_sc_hd__nor2_4
-x17 net11 net6 VGND VNB VPB VPWR Tn[4] sky130_fd_sc_hd__nor2_4
-x18 net12 net6 VGND VNB VPB VPWR Tn[5] sky130_fd_sc_hd__nor2_4
-x19 net13 net6 VGND VNB VPB VPWR Tn[6] sky130_fd_sc_hd__nor2_4
-x20 net6 VGND VNB VPB VPWR Tn[7] sky130_fd_sc_hd__inv_4
-x21 net7 net6 VGND VNB VPB VPWR Tn[8] sky130_fd_sc_hd__nand2_4
-x22 net8 net6 VGND VNB VPB VPWR Tn[9] sky130_fd_sc_hd__nand2_4
-x23 net9 net6 VGND VNB VPB VPWR Tn[10] sky130_fd_sc_hd__nand2_4
-x24 net10 net6 VGND VNB VPB VPWR Tn[11] sky130_fd_sc_hd__nand2_4
-x25 net11 net6 VGND VNB VPB VPWR Tn[12] sky130_fd_sc_hd__nand2_4
-x26 net12 net6 VGND VNB VPB VPWR Tn[13] sky130_fd_sc_hd__nand2_4
-x27 net13 net6 VGND VNB VPB VPWR Tn[14] sky130_fd_sc_hd__nand2_4
-x28 d[3] VGND VNB VPB VPWR net5 sky130_fd_sc_hd__inv_1
+x1 d[1] VGND VNB VPB VPWR TA2 sky130_fd_sc_hd__inv_1
+x2 TAN2 VGND VNB VPB VPWR TBN sky130_fd_sc_hd__inv_2
+x3 d[0] d[1] VGND VNB VPB VPWR TA3 sky130_fd_sc_hd__nand2_1
+x4 d[0] d[1] VGND VNB VPB VPWR TA1 sky130_fd_sc_hd__nor2_1
+x5 d[2] VGND VNB VPB VPWR TAN sky130_fd_sc_hd__inv_1
+x6 TA1 TAN VGND VNB VPB VPWR TB1 sky130_fd_sc_hd__nand2_1
+x7 TA2 TAN VGND VNB VPB VPWR TB2 sky130_fd_sc_hd__nand2_1
+x8 TA3 TAN VGND VNB VPB VPWR TB3 sky130_fd_sc_hd__nand2_1
+x9 TAN VGND VNB VPB VPWR TB4 sky130_fd_sc_hd__inv_1
+x10 TA1 TAN VGND VNB VPB VPWR TB5 sky130_fd_sc_hd__nor2_1
+x11 TA2 TAN VGND VNB VPB VPWR TB6 sky130_fd_sc_hd__nor2_1
+x12 TA3 TAN VGND VNB VPB VPWR TB7 sky130_fd_sc_hd__nor2_1
+x13 TB1 TBN VGND VNB VPB VPWR Tn[0] sky130_fd_sc_hd__nor2_4
+x14 TB2 TBN VGND VNB VPB VPWR Tn[1] sky130_fd_sc_hd__nor2_4
+x15 TB3 TBN VGND VNB VPB VPWR Tn[2] sky130_fd_sc_hd__nor2_4
+x16 TB4 TBN VGND VNB VPB VPWR Tn[3] sky130_fd_sc_hd__nor2_4
+x17 TB5 TBN VGND VNB VPB VPWR Tn[4] sky130_fd_sc_hd__nor2_4
+x18 TB6 TBN VGND VNB VPB VPWR Tn[5] sky130_fd_sc_hd__nor2_4
+x19 TB7 TBN VGND VNB VPB VPWR Tn[6] sky130_fd_sc_hd__nor2_4
+x20 TBN VGND VNB VPB VPWR Tn[7] sky130_fd_sc_hd__inv_4
+x21 TB1 TBN VGND VNB VPB VPWR Tn[8] sky130_fd_sc_hd__nand2_4
+x22 TB2 TBN VGND VNB VPB VPWR Tn[9] sky130_fd_sc_hd__nand2_4
+x23 TB3 TBN VGND VNB VPB VPWR Tn[10] sky130_fd_sc_hd__nand2_4
+x24 TB4 TBN VGND VNB VPB VPWR Tn[11] sky130_fd_sc_hd__nand2_4
+x25 TB5 TBN VGND VNB VPB VPWR Tn[12] sky130_fd_sc_hd__nand2_4
+x26 TB6 TBN VGND VNB VPB VPWR Tn[13] sky130_fd_sc_hd__nand2_4
+x27 TB7 TBN VGND VNB VPB VPWR Tn[14] sky130_fd_sc_hd__nand2_4
+x28 d[3] VGND VNB VPB VPWR TAN2 sky130_fd_sc_hd__inv_1
 .ends
 
 
@@ -247,21 +249,21 @@ XIC[15] VPWR VGND VPWR VPWR Sn Vbias Iout icell
 *.ipin Cn
 *.ipin Sn
 *.ipin Vbias
-XM2 net1 Sn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XMsp Ien Sn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM3 net1 Sn net3 VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XMsna Ien Sn PDM VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM4 net1 Cn net2 VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XMcpa Ien Cn PUM VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM5 net2 Rn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XMrpa PUM Rn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM6 net3 Rn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XMrno PDM Rn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM7 net3 Cn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XMcno PDM Cn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM1 net4 Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf *
-+ 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM8 Iout net1 net4 VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1.0 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XMiu SM Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
++ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XMsw Iout Ien SM VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1.0 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 .ends
 

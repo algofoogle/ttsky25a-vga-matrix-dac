@@ -1,12 +1,12 @@
 ** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/icell.sch
 .subckt icell VPWR VGND Rn Cn Sn Vbias Iout
 *.PININFO Rn:I VPWR:B Iout:O VGND:B Cn:I Sn:I Vbias:I
-XM2 Ien Sn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
-XM3 Ien Sn PDM VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
-XM4 Ien Cn PUM VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
-XM5 PUM Rn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
-XM6 PDM Rn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
-XM7 PDM Cn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
-XM1 SM Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
-XM8 Iout Ien SM VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1.0 nf=1 m=1
+XMsp Ien Sn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMsna Ien Sn PDM VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcpa Ien Cn PUM VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrpa PUM Rn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrno PDM Rn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcno PDM Cn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMiu SM Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+XMsw Iout Ien SM VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1.0 nf=1 m=1
 .ends
