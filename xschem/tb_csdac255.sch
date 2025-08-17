@@ -37,11 +37,11 @@ node="vout
 vbias
 \\"nom mA;i(xvvccnom) 1000 *\\"
 \\"out mA;i(viout) 1000 *\\""
-y1=1.4e-05
-y2=3.3
+y1=0.00023
+y2=4.2
 x1=0
-x2=4.9957725e-06
-dataset=-1}
+dataset=-1
+x2=1.28e-05}
 N 410 -650 410 -630 {lab=#net1}
 N 410 -730 410 -710 {lab=VAPWR}
 N 410 -570 410 -550 {lab=Vout}
@@ -112,7 +112,7 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 				+ i(vvcc)
 				+ i(vvpu)
 				+ i(vvgnd)
-				tran 0.25n 12.8u
+				tran 1n 12.8u
 				write tb_csdac255.raw vbias vout i(viout) i(vvgnd) i(vvcc) i(vvpu)
 				*plot vout vbias i(viout)*1000
 				set appendwrite
