@@ -141,7 +141,7 @@ C {lab_pin.sym} 340 -20 0 0 {name=p15 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 440 -350 0 0 {name=p11 sig_type=std_logic lab=Rn}
 C {lab_pin.sym} 460 -90 0 1 {name=p8 sig_type=std_logic lab=Cn}
 C {sky130_fd_pr/nfet3_g5v0d10v5.sym} 690 -140 0 0 {name=Miu
-W=1
+W=0.5
 L=0.5
 body=VGND
 nf=1
@@ -156,7 +156,7 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_g5v0d10v5.sym} 690 -220 0 0 {name=Msw
-W=1
+W=0.5
 L=0.5
 body=VGND
 nf=1

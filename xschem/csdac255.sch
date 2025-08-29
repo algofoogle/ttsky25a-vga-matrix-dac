@@ -125,7 +125,7 @@ C {opin.sym} 880 -150 0 0 {name=p26 lab=Vbias}
 C {lab_pin.sym} 820 -420 0 1 {name=p10 sig_type=std_logic lab=THERMO_ROWn[14:0]}
 C {lab_pin.sym} 840 -240 0 1 {name=p27 sig_type=std_logic lab=THERMO_COLn[14:0]}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 140 -150 0 1 {name=Mmirror
-W=4.0
+W=2.5
 L=1.0
 nf=1
 mult=1
