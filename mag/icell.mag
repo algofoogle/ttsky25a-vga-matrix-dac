@@ -1,14 +1,14 @@
 magic
 tech sky130A
-timestamp 1756444652
+timestamp 1756561242
 << nwell >>
 rect 0 0 86 243
 << pwell >>
 rect 86 0 393 243
 << nmos >>
-rect 131 178 182 193
-rect 131 133 182 148
-rect 131 88 182 103
+rect 131 178 181 193
+rect 131 133 181 148
+rect 131 88 181 103
 << pmos >>
 rect 18 178 68 193
 rect 18 133 68 148
@@ -17,22 +17,22 @@ rect 18 88 68 103
 rect 260 133 310 183
 rect 260 58 310 108
 << ndiff >>
-rect 131 217 182 221
+rect 131 217 181 221
 rect 131 199 139 217
-rect 176 199 182 217
-rect 131 193 182 199
-rect 131 172 182 178
+rect 175 199 181 217
+rect 131 193 181 199
+rect 131 172 181 178
 rect 131 154 135 172
-rect 152 154 182 172
-rect 131 148 182 154
-rect 131 127 182 133
+rect 152 154 181 172
+rect 131 148 181 154
+rect 131 127 181 133
 rect 131 109 139 127
-rect 176 109 182 127
-rect 131 103 182 109
-rect 131 82 182 88
+rect 176 109 181 127
+rect 131 103 181 109
+rect 131 82 181 88
 rect 131 64 141 82
-rect 174 64 182 82
-rect 131 60 182 64
+rect 174 64 181 82
+rect 131 60 181 64
 << pdiff >>
 rect 18 218 68 223
 rect 18 200 37 218
@@ -58,7 +58,7 @@ rect 260 28 268 48
 rect 302 28 310 48
 rect 260 23 310 28
 << ndiffc >>
-rect 139 199 176 217
+rect 139 199 175 217
 rect 135 154 152 172
 rect 139 109 176 127
 rect 141 64 174 82
@@ -89,7 +89,7 @@ rect 68 186 92 193
 rect 109 193 114 203
 rect 109 186 131 193
 rect 68 178 131 186
-rect 182 178 195 193
+rect 181 178 195 193
 rect 87 149 114 157
 rect 87 148 92 149
 rect 5 133 18 148
@@ -98,7 +98,7 @@ rect 87 132 92 133
 rect 109 148 114 149
 rect 216 173 260 183
 rect 109 133 131 148
-rect 182 133 195 148
+rect 181 133 195 148
 rect 216 143 221 173
 rect 241 143 260 173
 rect 216 133 260 143
@@ -113,7 +113,7 @@ rect 68 95 131 103
 rect 68 88 92 95
 rect 87 78 92 88
 rect 109 88 131 95
-rect 182 88 195 103
+rect 181 88 195 103
 rect 216 98 260 108
 rect 109 78 114 88
 rect 87 70 114 78
@@ -139,7 +139,7 @@ rect 58 200 66 218
 rect 92 203 109 212
 rect 3 89 22 200
 rect 131 199 139 217
-rect 176 199 194 217
+rect 175 199 194 217
 rect 92 177 109 186
 rect 92 149 109 158
 rect 127 154 135 172
@@ -231,7 +231,6 @@ rect 302 28 310 48
 rect 260 7 310 28
 << labels >>
 flabel pdiff 26 156 60 170 0 FreeSans 80 0 0 0 PUM
-flabel locali 133 201 167 215 0 FreeSans 80 0 0 0 PDM
 flabel locali 92 36 122 51 0 FreeSans 80 0 0 0 Ien
 flabel mvndiff 265 113 305 128 0 FreeSans 80 0 0 0 SM
 flabel metal1 12 43 37 68 0 FreeSans 64 0 0 0 VPWR
@@ -248,6 +247,7 @@ flabel metal1 92 72 115 101 0 FreeSans 64 0 0 0 Sn
 port 11 nsew
 flabel metal1 92 180 115 209 0 FreeSans 64 0 0 0 Rn
 port 12 nsew
+flabel locali 133 201 167 215 0 FreeSans 80 0 0 0 PDM
 << properties >>
 string FIXED_BBOX 0 0 393 232
 << end >>
