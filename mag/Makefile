@@ -1,4 +1,9 @@
+#NOTE: PROJECT_NAME can also be a subcell name, and in the case of LVS it is the LAYOUT name:
 PROJECT_NAME ?= tt_um_algofoogle_vga_matrix_dac
+
+#NOTE: SCHEMATIC_NAME is only used in LVS, and can be overridden to compare a given layout with a specific schematic SPICE subcircuit:
+SCHEMATIC_NAME ?= $(PROJECT_NAME)
+
 # MAGIC_RC := $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc
 # TEMPLATE_FILE := tt_analog_2x2.def
 #TEMPLATE_FILE := tt_analog_1x2_3v3.def
@@ -36,7 +41,8 @@ $(PROJECT_NAME).sim.spice: $(PROJECT_NAME).mag
 	rm -f *.ext
 
 lvs.report: $(PROJECT_NAME).lvs.spice ../src/project.v
-	netgen -batch eval "set project $(PROJECT_NAME) ; source tcl/lvs_netgen.tcl"
+	@echo "============ Comparing layout '$(PROJECT_NAME)' with schematic '$(SCHEMATIC_NAME)' ============"
+	netgen -batch eval "set layout_name $(PROJECT_NAME) ; set schem_name $(SCHEMATIC_NAME) ; source tcl/lvs_netgen.tcl"
 
 lvs: lvs.report
 	@bash -c 'propOk=OK; match=FAIL; port=OK; \
