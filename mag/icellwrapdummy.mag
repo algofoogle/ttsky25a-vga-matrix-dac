@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1756690244
+timestamp 1756780365
 << nwell >>
 rect 0 -27 86 0
 << pwell >>
@@ -12,23 +12,24 @@ rect 100 212 118 243
 rect 89 207 118 212
 rect 89 181 90 207
 rect 116 181 118 207
-rect 89 177 118 181
-rect 173 167 217 243
-rect 60 158 99 163
+rect 89 178 118 181
+rect 86 163 118 178
+rect 60 158 118 163
 rect 60 127 65 158
-rect 94 127 99 158
-rect 60 122 99 127
+rect 94 127 118 158
+rect 60 122 118 127
+rect 0 72 39 77
+rect 0 41 5 72
+rect 34 41 39 72
+rect 0 36 39 41
+rect 100 0 118 122
+rect 173 167 217 243
 rect 173 126 178 167
 rect 212 126 217 167
 rect 324 169 363 174
 rect 324 138 329 169
 rect 358 138 363 169
 rect 324 133 363 138
-rect 0 72 39 77
-rect 0 41 5 72
-rect 34 41 39 72
-rect 0 36 39 41
-rect 100 0 118 104
 rect 173 0 217 126
 rect 260 43 299 48
 rect 260 12 265 43
@@ -37,32 +38,30 @@ rect 260 7 299 12
 << via1 >>
 rect 90 181 116 207
 rect 65 127 94 158
+rect 5 41 34 72
 rect 178 126 212 167
 rect 329 138 358 169
-rect 5 41 34 72
 rect 265 12 294 43
 << metal2 >>
-rect 87 207 119 208
-rect 87 202 90 207
-rect 0 188 90 202
-rect 87 181 90 188
-rect 116 202 119 207
-rect 116 188 393 202
-rect 116 181 119 188
-rect 87 180 119 181
-rect 173 167 217 172
-rect 60 158 99 163
+rect 60 207 120 210
+rect 60 181 90 207
+rect 116 181 120 207
+rect 60 180 120 181
+rect 60 158 100 180
 rect 60 127 65 158
-rect 94 127 99 158
-rect 60 122 99 127
+rect 94 127 100 158
+rect 60 120 100 127
+rect 173 167 217 172
 rect 173 126 178 167
-rect 212 126 217 167
-rect 173 121 217 126
+rect 212 145 217 167
 rect 324 169 363 174
-rect 324 138 329 169
+rect 324 145 329 169
+rect 212 138 329 145
 rect 358 138 363 169
-rect 324 107 363 138
-rect 0 91 393 107
+rect 212 130 363 138
+rect 212 126 217 130
+rect 173 121 217 126
+rect 60 77 75 120
 rect 0 72 393 77
 rect 0 41 5 72
 rect 34 63 393 72
@@ -117,10 +116,10 @@ rect 0 167 393 172
 rect 0 126 178 167
 rect 212 126 393 167
 rect 0 121 393 126
-rect 0 44 393 48
-rect 0 12 265 44
-rect 297 12 393 44
-rect 0 7 393 12
+rect 240 44 320 48
+rect 240 12 265 44
+rect 297 12 320 44
+rect 240 7 320 12
 use icell  icell
 timestamp 1756561242
 transform 1 0 0 0 1 0
@@ -128,18 +127,8 @@ box 0 0 393 243
 << labels >>
 flabel metal3 0 220 30 232 0 FreeSans 40 0 0 0 VPWR
 port 1 nsew
-flabel metal3 69 220 99 232 0 FreeSans 40 0 0 0 Cn
-port 2 nsew
 flabel metal3 173 220 217 232 0 FreeSans 40 0 0 0 VGND
 port 3 nsew
-flabel metal3 260 220 290 232 0 FreeSans 40 0 0 0 Iout
-port 4 nsew
-flabel metal3 333 220 363 232 0 FreeSans 40 0 0 0 Vbias
-port 5 nsew
-flabel metal1 100 0 118 18 0 FreeSans 40 0 0 0 Sn
-port 7 nsew
-flabel metal2 0 188 14 202 0 FreeSans 40 0 0 0 Rn
-port 6 nsew
 << properties >>
 string FIXED_BBOX 0 0 393 232
 << end >>
