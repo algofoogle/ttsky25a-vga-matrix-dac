@@ -1,0 +1,80 @@
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/array255x.sch
+.subckt array255x VPWR VGND Rn[14] Rn[13] Rn[12] Rn[11] Rn[10] Rn[9] Rn[8] Rn[7] Rn[6] Rn[5] Rn[4] Rn[3] Rn[2] Rn[1] Rn[0] Cn[14]
++ Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] Vbias Iout
+*.PININFO VPWR:B Iout:O VGND:B Vbias:I Cn[14:0]:I Rn[14:0]:I
+XIR[14] Vbias VPWR Rn[14] Rn[13] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[13] Vbias VPWR Rn[13] Rn[12] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[12] Vbias VPWR Rn[12] Rn[11] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[11] Vbias VPWR Rn[11] Rn[10] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[10] Vbias VPWR Rn[10] Rn[9] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[9] Vbias VPWR Rn[9] Rn[8] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[8] Vbias VPWR Rn[8] Rn[7] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[7] Vbias VPWR Rn[7] Rn[6] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[6] Vbias VPWR Rn[6] Rn[5] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[5] Vbias VPWR Rn[5] Rn[4] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[4] Vbias VPWR Rn[4] Rn[3] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[3] Vbias VPWR Rn[3] Rn[2] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[2] Vbias VPWR Rn[2] Rn[1] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[1] Vbias VPWR Rn[1] Rn[0] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[0] Vbias VPWR Rn[0] VGND Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[15] Vbias VPWR VPWR Rn[14] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+.ends
+
+* expanding   symbol:  row15x.sym # of pins=7
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/row15x.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/row15x.sch
+.subckt row15x Vbias VPWR Sn Rn Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout
+*.PININFO Sn:I Rn:I Cn[14:0]:I VPWR:B VGND:B Iout:O Vbias:I
+XIC[14] VPWR VGND Rn Cn[14] Sn Vbias Iout icell
+XIC[13] VPWR VGND Rn Cn[13] Sn Vbias Iout icell
+XIC[12] VPWR VGND Rn Cn[12] Sn Vbias Iout icell
+XIC[11] VPWR VGND Rn Cn[11] Sn Vbias Iout icell
+XIC[10] VPWR VGND Rn Cn[10] Sn Vbias Iout icell
+XIC[9] VPWR VGND Rn Cn[9] Sn Vbias Iout icell
+XIC[8] VPWR VGND Rn Cn[8] Sn Vbias Iout icell
+XIC[7] VPWR VGND Rn Cn[7] Sn Vbias Iout icell
+XIC[6] VPWR VGND Rn Cn[6] Sn Vbias Iout icell
+XIC[5] VPWR VGND Rn Cn[5] Sn Vbias Iout icell
+XIC[4] VPWR VGND Rn Cn[4] Sn Vbias Iout icell
+XIC[3] VPWR VGND Rn Cn[3] Sn Vbias Iout icell
+XIC[2] VPWR VGND Rn Cn[2] Sn Vbias Iout icell
+XIC[1] VPWR VGND Rn Cn[1] Sn Vbias Iout icell
+XIC[0] VPWR VGND Rn Cn[0] Sn Vbias Iout icell
+XIC[15] VPWR VGND VPWR VPWR Sn Vbias Iout icell
+XIC_dummy_left VPWR VGND VPWR VPWR VPWR VGND net1 icell
+XIC_dummy_right VPWR VGND VPWR VPWR VPWR VGND net2 icell
+.ends
+
+
+* expanding   symbol:  icell.sym # of pins=7
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/icell.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/icell.sch
+.subckt icell VPWR VGND Rn Cn Sn Vbias Iout
+*.PININFO Rn:I VPWR:B Iout:O VGND:B Cn:I Sn:I Vbias:I
+XMsp Ien Sn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMsna Ien Sn PDM VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcpa Ien Cn PUM VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrpa PUM Rn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrno PDM Rn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcno PDM Cn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMiu SM Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+XMsw Iout Ien SM VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+.ends
+

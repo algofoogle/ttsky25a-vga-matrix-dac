@@ -22,14 +22,13 @@ So here are all the LVS runs you can do:
 make clean lvs PROJECT_NAME=icell
 make clean lvs PROJECT_NAME=icellwrap SCHEMATIC_NAME=icell
 make clean lvs PROJECT_NAME=row15x
+make clean lvs PROJECT_NAME=array255x
 ```
 
-There are other cells too:
+There are other cells too (that don't currently support LVS as they don't have *schematic* SPICE netlists):
 
 *   `icellwrapfinal` -- The 'terminal' icell of a row, i.e. the 16th instance that has `Cn` and `Rn` disabled.
 *   `icellwrapdummy` -- An icell wired as a dummy instance, placed at each of the start and end of a row.
-
-Note that the above two don't have schematic SPICE netlists, so I haven't set up LVS for them yet.
 
 
 # Run DRC
