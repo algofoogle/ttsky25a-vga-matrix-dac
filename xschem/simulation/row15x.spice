@@ -1,0 +1,39 @@
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/row15x.sch
+.subckt row15x Vbias VPWR Sn Rn Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout
+*.PININFO Sn:I Rn:I Cn[14:0]:I VPWR:B VGND:B Iout:O Vbias:I
+XIC[14] VPWR VGND Rn Cn[14] Sn Vbias Iout icell
+XIC[13] VPWR VGND Rn Cn[13] Sn Vbias Iout icell
+XIC[12] VPWR VGND Rn Cn[12] Sn Vbias Iout icell
+XIC[11] VPWR VGND Rn Cn[11] Sn Vbias Iout icell
+XIC[10] VPWR VGND Rn Cn[10] Sn Vbias Iout icell
+XIC[9] VPWR VGND Rn Cn[9] Sn Vbias Iout icell
+XIC[8] VPWR VGND Rn Cn[8] Sn Vbias Iout icell
+XIC[7] VPWR VGND Rn Cn[7] Sn Vbias Iout icell
+XIC[6] VPWR VGND Rn Cn[6] Sn Vbias Iout icell
+XIC[5] VPWR VGND Rn Cn[5] Sn Vbias Iout icell
+XIC[4] VPWR VGND Rn Cn[4] Sn Vbias Iout icell
+XIC[3] VPWR VGND Rn Cn[3] Sn Vbias Iout icell
+XIC[2] VPWR VGND Rn Cn[2] Sn Vbias Iout icell
+XIC[1] VPWR VGND Rn Cn[1] Sn Vbias Iout icell
+XIC[0] VPWR VGND Rn Cn[0] Sn Vbias Iout icell
+XIC[15] VPWR VGND VPWR VPWR Sn Vbias Iout icell
+XIC_dummy_left VPWR VGND VPWR VPWR VPWR VGND net1 icell
+XIC_dummy_right VPWR VGND VPWR VPWR VPWR VGND net2 icell
+.ends
+
+* expanding   symbol:  icell.sym # of pins=7
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/icell.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/icell.sch
+.subckt icell VPWR VGND Rn Cn Sn Vbias Iout
+*.PININFO Rn:I VPWR:B Iout:O VGND:B Cn:I Sn:I Vbias:I
+XMsp Ien Sn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMsna Ien Sn PDM VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcpa Ien Cn PUM VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrpa PUM Rn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrno PDM Rn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcno PDM Cn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMiu SM Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+XMsw Iout Ien SM VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+.ends
+

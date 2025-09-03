@@ -45,12 +45,15 @@ lvs.report: $(PROJECT_NAME).lvs.spice ../src/project.v
 	netgen -batch eval "set layout_name $(PROJECT_NAME) ; set schem_name $(SCHEMATIC_NAME) ; source tcl/lvs_netgen.tcl"
 
 lvs: lvs.report
-	@bash -c 'propOk=OK; match=FAIL; port=OK; \
+	@bash -c 'props=OK; match=FAIL; port=OK; \
     if grep -q "match uniquely" lvs.report; then \
         match=OK; \
     fi; \
     if grep -q "Property errors were found" lvs.report; then \
-        propOk=FAIL; \
+        props=FAIL; \
+    fi; \
+    if grep -q "The following cells had property errors" lvs.report; then \
+        props=FAIL; \
     fi; \
     if grep -q "failed pin matching" lvs.report; then \
         match=FAIL; \
@@ -64,12 +67,12 @@ lvs: lvs.report
     if grep -q "Final result: Circuits match uniquely\." lvs.report; then \
         match=OK; \
     fi; \
-	if [ "$$match" == "OK" ] && [ "$$propOk" == "OK" ] && [ "$$port" == "OK" ]; then \
+    if [ "$$match" == "OK" ] && [ "$$props" == "OK" ] && [ "$$port" == "OK" ]; then \
         echo "LVS OK"; \
-	    exit 0; \
+        exit 0; \
     else \
-        echo "LVS FAIL: match=$$match properties=$$propOk port=$$port"; \
-	    exit 1; \
+        echo "LVS FAIL: match=$$match properties=$$props port=$$port"; \
+        exit 1; \
     fi'
 
 update_gds:

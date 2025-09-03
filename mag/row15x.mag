@@ -1,21 +1,88 @@
 magic
 tech sky130A
-timestamp 1756781249
-use icellwrapdummy  icell_dummy_left
-timestamp 1756780365
+timestamp 1756827453
+<< metal2 >>
+rect -28 188 407 202
+rect -28 -44 407 -30
+<< metal3 >>
+rect 0 213 30 243
+rect 173 213 217 243
+rect 462 213 492 243
+rect 726 213 756 243
+rect 855 213 885 243
+rect 1248 213 1278 243
+rect 1641 213 1671 243
+rect 2034 213 2064 243
+rect 2427 213 2457 243
+rect 2820 213 2850 243
+rect 3213 213 3243 243
+rect 3606 213 3636 243
+rect 3999 213 4029 243
+rect 4392 213 4422 243
+rect 4785 213 4815 243
+rect 5178 213 5208 243
+rect 5571 213 5601 243
+rect 5964 213 5994 243
+<< metal4 >>
+rect 6640 7 6681 48
+use icellwrapdummy  XIC_dummy_left
+timestamp 1756824846
 transform 1 0 0 0 1 0
 box 0 -27 393 243
-use icellwrapdummy  icell_dummy_right
-timestamp 1756780365
+use icellwrapdummy  XIC_dummy_right
+timestamp 1756824846
 transform 1 0 6681 0 1 0
 box 0 -27 393 243
 use icellwrap  XIC
 array 0 14 393 0 0 232
-timestamp 1756690244
+timestamp 1756824108
 transform 1 0 393 0 1 0
-box 0 -27 393 243
+box 0 -55 393 243
 use icellwrapfinal  XIC_15
-timestamp 1756777818
+timestamp 1756825714
 transform 1 0 6288 0 1 0
-box 0 -27 393 243
+box 0 -44 393 243
+<< labels >>
+flabel metal2 -28 188 -14 202 0 FreeSans 40 0 0 0 Rn
+port 0 nsew
+flabel metal2 -28 -44 -14 -30 0 FreeSans 40 0 0 0 Sn
+port 1 nsew
+flabel metal3 0 220 30 232 0 FreeSans 48 0 0 0 VPWR
+port 2 nsew
+flabel metal3 173 220 217 232 0 FreeSans 48 0 0 0 VGND
+port 3 nsew
+flabel metal4 6640 7 6681 48 0 FreeSans 48 0 0 0 Iout
+port 4 nsew
+flabel metal3 726 220 756 232 0 FreeSans 48 0 0 0 Vbias
+port 5 nsew
+flabel metal3 462 220 492 232 0 FreeSans 48 0 0 0 Cn[0]
+port 6 nsew
+flabel metal3 855 220 885 232 0 FreeSans 48 0 0 0 Cn[1]
+port 7 nsew
+flabel metal3 1248 220 1278 232 0 FreeSans 48 0 0 0 Cn[2]
+port 8 nsew
+flabel metal3 1641 220 1671 232 0 FreeSans 48 0 0 0 Cn[3]
+port 9 nsew
+flabel metal3 2034 220 2064 232 0 FreeSans 48 0 0 0 Cn[4]
+port 10 nsew
+flabel metal3 2427 220 2457 232 0 FreeSans 48 0 0 0 Cn[5]
+port 11 nsew
+flabel metal3 2820 220 2850 232 0 FreeSans 48 0 0 0 Cn[6]
+port 12 nsew
+flabel metal3 3213 220 3243 232 0 FreeSans 48 0 0 0 Cn[7]
+port 13 nsew
+flabel metal3 3606 220 3636 232 0 FreeSans 48 0 0 0 Cn[8]
+port 14 nsew
+flabel metal3 3999 220 4029 232 0 FreeSans 48 0 0 0 Cn[9]
+port 15 nsew
+flabel metal3 4392 220 4422 232 0 FreeSans 48 0 0 0 Cn[10]
+port 16 nsew
+flabel metal3 4785 220 4815 232 0 FreeSans 48 0 0 0 Cn[11]
+port 17 nsew
+flabel metal3 5178 220 5208 232 0 FreeSans 48 0 0 0 Cn[12]
+port 18 nsew
+flabel metal3 5571 220 5601 232 0 FreeSans 48 0 0 0 Cn[13]
+port 19 nsew
+flabel metal3 5964 220 5994 232 0 FreeSans 48 0 0 0 Cn[14]
+port 20 nsew
 << end >>
