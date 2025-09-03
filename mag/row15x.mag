@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1756827453
+timestamp 1756871684
 << metal2 >>
 rect -28 188 407 202
 rect -28 -44 407 -30
@@ -39,7 +39,7 @@ timestamp 1756824108
 transform 1 0 393 0 1 0
 box 0 -55 393 243
 use icellwrapfinal  XIC_15
-timestamp 1756825714
+timestamp 1756851254
 transform 1 0 6288 0 1 0
 box 0 -44 393 243
 << labels >>
@@ -85,4 +85,6 @@ flabel metal3 5571 220 5601 232 0 FreeSans 48 0 0 0 Cn[13]
 port 19 nsew
 flabel metal3 5964 220 5994 232 0 FreeSans 48 0 0 0 Cn[14]
 port 20 nsew
+<< properties >>
+string FIXED_BBOX 0 0 7074 232
 << end >>
