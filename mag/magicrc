@@ -1,0 +1,27 @@
+# NOTE: I have the following in my ~/.bashrc to help make this script
+# cooperate with launching 'magic' in this directory:
+#   magicpdk() {
+#       if [ -f magicrc ]; then
+#           magic -rcfile magicrc $@
+#       else
+#           magic -rcfile $PDK_MAGICRC $@
+#       fi
+#   }
+#   magicc() {
+#       magicpdk $@ &
+#   }
+# This enables me to do (for example):
+#   magicc array255x.mag
+# ...and then do SHIFT+ALT+G to enable snapping to a 10nm grid.
+
+set sky_magrc [file normalize $env(PDK_MAGICRC)]
+puts "::: ANTON magicrc: Sourcing $sky_magrc"
+source $sky_magrc
+puts "::: ANTON magicrc: Setting Anton's prefs"
+snap user
+set Opts(crosshair) 1
+macro Meta_XK_g       {grid 50nm; snap user}
+puts ":::       ALT+G = snap to 50nm grid"
+macro Meta_Shift_XK_G {grid 10nm; snap user}
+puts "::: SHIFT+ALT+G = snap to 10nm grid"
+# view -100nm -100nm 1um 1um

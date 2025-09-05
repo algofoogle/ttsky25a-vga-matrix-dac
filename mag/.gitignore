@@ -3,6 +3,6 @@
 *nodes
 *sim
 *spice
-*magicrc
+# *magicrc
 *def
 lvs.report

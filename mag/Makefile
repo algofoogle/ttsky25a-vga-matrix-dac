@@ -19,8 +19,8 @@ SCHEMATIC_NAME ?= $(PROJECT_NAME)
 # tt_analog_2x2.def:
 # 	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_2x2.def
 
-# tt_analog_1x2_3v3.def:
-# 	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_1x2_3v3.def
+tt_analog_1x2_3v3.def:
+	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_1x2_3v3.def
 
 # start: $(TEMPLATE_FILE)
 # 	magic -rcfile $(MAGIC_RC) -noconsole -dnull tcl/tt-analog-draw.tcl $(TEMPLATE_FILE) $(PROJECT_NAME)
