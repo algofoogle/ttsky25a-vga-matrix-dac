@@ -96,9 +96,9 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 *.ipin bias[2],bias[1],bias[0]
 *.ipin data[7],data[6],data[5],data[4],data[3],data[2],data[1],data[0]
 *.opin Vbias
-x1 VPWR VGND VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8] THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] data[7] data[6] data[5] data[4] thermo15
+x1 VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8] THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] data[7] data[6] data[5] data[4] thermo15
 x2 VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8] THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] Vbias Iout array255x
-x3 VPWR VGND VPWR VGND THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] data[3] data[2] data[1] data[0] thermo15
+x3 VPWR VGND THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] data[3] data[2] data[1] data[0] thermo15
 XM1 Vbias bias[2] VPWR VPWR sky130_fd_pr__pfet_01v8 L=1 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM2 Vbias bias[1] VPWR VPWR sky130_fd_pr__pfet_01v8 L=2 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
@@ -138,44 +138,42 @@ C5 mod VGND 250f m=1
 .ends
 
 
-* expanding   symbol:  thermo15.sym # of pins=6
+* expanding   symbol:  thermo15.sym # of pins=4
 ** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/thermo15.sym
 ** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/thermo15.sch
-.subckt thermo15 VPWR VGND VPB VNB Tn[14] Tn[13] Tn[12] Tn[11] Tn[10] Tn[9] Tn[8] Tn[7] Tn[6] Tn[5] Tn[4] Tn[3] Tn[2] Tn[1] Tn[0] d[3] d[2] d[1] d[0]
+.subckt thermo15 VPWR VGND Tn[14] Tn[13] Tn[12] Tn[11] Tn[10] Tn[9] Tn[8] Tn[7] Tn[6] Tn[5] Tn[4] Tn[3] Tn[2] Tn[1] Tn[0] d[3] d[2] d[1] d[0]
 *.iopin VPWR
 *.ipin d[3],d[2],d[1],d[0]
 *.iopin VGND
-*.iopin VPB
-*.iopin VNB
 *.opin Tn[14],Tn[13],Tn[12],Tn[11],Tn[10],Tn[9],Tn[8],Tn[7],Tn[6],Tn[5],Tn[4],Tn[3],Tn[2],Tn[1],Tn[0]
-x1 d[1] VGND VNB VPB VPWR TA2 sky130_fd_sc_hd__inv_1
-x2 TAN2 VGND VNB VPB VPWR TBN sky130_fd_sc_hd__inv_2
-x3 d[0] d[1] VGND VNB VPB VPWR TA3 sky130_fd_sc_hd__nand2_1
-x4 d[0] d[1] VGND VNB VPB VPWR TA1 sky130_fd_sc_hd__nor2_1
-x5 d[2] VGND VNB VPB VPWR TAN sky130_fd_sc_hd__inv_1
-x6 TA1 TAN VGND VNB VPB VPWR TB1 sky130_fd_sc_hd__nand2_1
-x7 TA2 TAN VGND VNB VPB VPWR TB2 sky130_fd_sc_hd__nand2_1
-x8 TA3 TAN VGND VNB VPB VPWR TB3 sky130_fd_sc_hd__nand2_1
-x9 TAN VGND VNB VPB VPWR TB4 sky130_fd_sc_hd__inv_1
-x10 TA1 TAN VGND VNB VPB VPWR TB5 sky130_fd_sc_hd__nor2_1
-x11 TA2 TAN VGND VNB VPB VPWR TB6 sky130_fd_sc_hd__nor2_1
-x12 TA3 TAN VGND VNB VPB VPWR TB7 sky130_fd_sc_hd__nor2_1
-x13 TB1 TBN VGND VNB VPB VPWR Tn[0] sky130_fd_sc_hd__nor2_4
-x14 TB2 TBN VGND VNB VPB VPWR Tn[1] sky130_fd_sc_hd__nor2_4
-x15 TB3 TBN VGND VNB VPB VPWR Tn[2] sky130_fd_sc_hd__nor2_4
-x16 TB4 TBN VGND VNB VPB VPWR Tn[3] sky130_fd_sc_hd__nor2_4
-x17 TB5 TBN VGND VNB VPB VPWR Tn[4] sky130_fd_sc_hd__nor2_4
-x18 TB6 TBN VGND VNB VPB VPWR Tn[5] sky130_fd_sc_hd__nor2_4
-x19 TB7 TBN VGND VNB VPB VPWR Tn[6] sky130_fd_sc_hd__nor2_4
-x20 TBN VGND VNB VPB VPWR Tn[7] sky130_fd_sc_hd__inv_4
-x21 TB1 TBN VGND VNB VPB VPWR Tn[8] sky130_fd_sc_hd__nand2_4
-x22 TB2 TBN VGND VNB VPB VPWR Tn[9] sky130_fd_sc_hd__nand2_4
-x23 TB3 TBN VGND VNB VPB VPWR Tn[10] sky130_fd_sc_hd__nand2_4
-x24 TB4 TBN VGND VNB VPB VPWR Tn[11] sky130_fd_sc_hd__nand2_4
-x25 TB5 TBN VGND VNB VPB VPWR Tn[12] sky130_fd_sc_hd__nand2_4
-x26 TB6 TBN VGND VNB VPB VPWR Tn[13] sky130_fd_sc_hd__nand2_4
-x27 TB7 TBN VGND VNB VPB VPWR Tn[14] sky130_fd_sc_hd__nand2_4
-x28 d[3] VGND VNB VPB VPWR TAN2 sky130_fd_sc_hd__inv_1
+XTA2 d[1] VGND VGND VPWR VPWR TA2 sky130_fd_sc_hd__inv_1
+XTBN TAN2 VGND VGND VPWR VPWR TBN sky130_fd_sc_hd__inv_2
+XTA3 d[0] d[1] VGND VGND VPWR VPWR TA3 sky130_fd_sc_hd__nand2_1
+XTA1 d[0] d[1] VGND VGND VPWR VPWR TA1 sky130_fd_sc_hd__nor2_1
+XTAN d[2] VGND VGND VPWR VPWR TAN sky130_fd_sc_hd__inv_1
+XTB1 TA1 TAN VGND VGND VPWR VPWR TB1 sky130_fd_sc_hd__nand2_1
+XTB2 TA2 TAN VGND VGND VPWR VPWR TB2 sky130_fd_sc_hd__nand2_1
+XTB3 TA3 TAN VGND VGND VPWR VPWR TB3 sky130_fd_sc_hd__nand2_1
+XTB4 TAN VGND VGND VPWR VPWR TB4 sky130_fd_sc_hd__inv_1
+XTB5 TA1 TAN VGND VGND VPWR VPWR TB5 sky130_fd_sc_hd__nor2_1
+XTB6 TA2 TAN VGND VGND VPWR VPWR TB6 sky130_fd_sc_hd__nor2_1
+XTB7 TA3 TAN VGND VGND VPWR VPWR TB7 sky130_fd_sc_hd__nor2_1
+XOTn0 TB1 TBN VGND VGND VPWR VPWR Tn[0] sky130_fd_sc_hd__nor2_4
+XOTn1 TB2 TBN VGND VGND VPWR VPWR Tn[1] sky130_fd_sc_hd__nor2_4
+XOTn2 TB3 TBN VGND VGND VPWR VPWR Tn[2] sky130_fd_sc_hd__nor2_4
+XOTn3 TB4 TBN VGND VGND VPWR VPWR Tn[3] sky130_fd_sc_hd__nor2_4
+XOTn4 TB5 TBN VGND VGND VPWR VPWR Tn[4] sky130_fd_sc_hd__nor2_4
+XOTn5 TB6 TBN VGND VGND VPWR VPWR Tn[5] sky130_fd_sc_hd__nor2_4
+XOTn6 TB7 TBN VGND VGND VPWR VPWR Tn[6] sky130_fd_sc_hd__nor2_4
+XOTn7 TBN VGND VGND VPWR VPWR Tn[7] sky130_fd_sc_hd__inv_4
+XOTn8 TB1 TBN VGND VGND VPWR VPWR Tn[8] sky130_fd_sc_hd__nand2_4
+XOTn9 TB2 TBN VGND VGND VPWR VPWR Tn[9] sky130_fd_sc_hd__nand2_4
+XOTn10 TB3 TBN VGND VGND VPWR VPWR Tn[10] sky130_fd_sc_hd__nand2_4
+XOTn11 TB4 TBN VGND VGND VPWR VPWR Tn[11] sky130_fd_sc_hd__nand2_4
+XOTn12 TB5 TBN VGND VGND VPWR VPWR Tn[12] sky130_fd_sc_hd__nand2_4
+XOTn13 TB6 TBN VGND VGND VPWR VPWR Tn[13] sky130_fd_sc_hd__nand2_4
+XOTn14 TB7 TBN VGND VGND VPWR VPWR Tn[14] sky130_fd_sc_hd__nand2_4
+XTAN2 d[3] VGND VGND VPWR VPWR TAN2 sky130_fd_sc_hd__inv_1
 .ends
 
 
@@ -235,6 +233,8 @@ XIC[2] VPWR VGND Rn Cn[2] Sn Vbias Iout icell
 XIC[1] VPWR VGND Rn Cn[1] Sn Vbias Iout icell
 XIC[0] VPWR VGND Rn Cn[0] Sn Vbias Iout icell
 XIC[15] VPWR VGND VPWR VPWR Sn Vbias Iout icell
+XIC_dummy_left VPWR VGND VPWR VPWR VPWR VGND net1 icell
+XIC_dummy_right VPWR VGND VPWR VPWR VPWR VGND net2 icell
 .ends
 
 

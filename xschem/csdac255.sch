@@ -112,12 +112,8 @@ C {ipin.sym} 500 -620 0 0 {name=p12 lab=data[7:0]}
 C {lab_pin.sym} 440 -460 0 0 {name=p13 sig_type=std_logic lab=data[7:4]}
 C {lab_pin.sym} 440 -320 0 0 {name=p14 sig_type=std_logic lab=data[3:0]}
 C {lab_pin.sym} 740 -460 0 1 {name=p15 sig_type=std_logic lab=VPWR}
-C {lab_pin.sym} 740 -440 0 1 {name=p16 sig_type=std_logic lab=VPWR}
 C {lab_pin.sym} 740 -320 0 1 {name=p17 sig_type=std_logic lab=VPWR}
-C {lab_pin.sym} 740 -300 0 1 {name=p18 sig_type=std_logic lab=VPWR}
-C {lab_pin.sym} 740 -420 0 1 {name=p19 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 740 -400 0 1 {name=p20 sig_type=std_logic lab=VGND}
-C {lab_pin.sym} 740 -280 0 1 {name=p22 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 740 -260 0 1 {name=p23 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 1120 -380 0 1 {name=p24 sig_type=std_logic lab=VPWR}
 C {lab_pin.sym} 1120 -360 0 1 {name=p25 sig_type=std_logic lab=VGND}
