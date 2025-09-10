@@ -1,0 +1,103 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1757512958
+<< viali >>
+rect 1860 548 1894 786
+rect 184 514 1894 548
+rect 288 270 322 514
+rect 1860 276 1894 514
+rect 2108 82 2142 968
+rect 2634 264 2668 968
+<< metal1 >>
+rect 0 224 44 1016
+rect 82 798 220 1016
+rect 598 884 644 1016
+rect 252 838 644 884
+rect 938 838 984 1016
+rect 2096 968 2680 1016
+rect 82 696 242 798
+rect 82 580 220 696
+rect 438 610 484 838
+rect 654 696 744 798
+rect 838 696 928 798
+rect 1316 610 1362 884
+rect 1740 786 1900 798
+rect 1740 696 1860 786
+rect 1764 580 1860 696
+rect 82 548 1860 580
+rect 82 514 184 548
+rect 82 482 288 514
+rect 282 270 288 482
+rect 322 482 1860 514
+rect 322 366 328 482
+rect 322 270 442 366
+rect 282 258 442 270
+rect 526 224 572 452
+rect 654 264 744 366
+rect 838 264 928 366
+rect 1316 224 1362 452
+rect 1764 366 1860 482
+rect 1740 276 1860 366
+rect 1894 276 1900 786
+rect 1740 264 1900 276
+rect 2096 224 2108 968
+rect 0 178 644 224
+rect 938 128 2108 224
+rect 2096 82 2108 128
+rect 2142 884 2634 968
+rect 2142 82 2154 884
+rect 2220 654 2388 836
+rect 2512 758 2634 884
+rect 2298 408 2388 654
+rect 2220 180 2388 408
+rect 2494 264 2634 758
+rect 2668 264 2680 968
+rect 2494 258 2680 264
+rect 2096 36 2154 82
+<< via1 >>
+rect 744 696 838 798
+rect 744 264 838 366
+rect 2220 408 2298 654
+<< metal2 >>
+rect 744 798 838 804
+rect 744 574 838 696
+rect 2220 654 2298 660
+rect 744 488 2220 574
+rect 744 366 838 488
+rect 744 258 838 264
+rect 2220 0 2298 408
+use sky130_fd_pr__pfet_01v8_B3DYZW  XM1
+timestamp 1757512958
+transform 1 0 548 0 1 315
+box -296 -269 296 269
+use sky130_fd_pr__pfet_01v8_8JDY5S  XM2
+timestamp 1757512958
+transform 1 0 448 0 1 747
+box -396 -269 396 269
+use sky130_fd_pr__pfet_01v8_9JDYDD  XM3
+timestamp 1757512958
+transform 1 0 1334 0 1 747
+box -596 -269 596 269
+use sky130_fd_pr__pfet_01v8_9JDYDD  XM4
+timestamp 1757512958
+transform 1 0 1334 0 1 315
+box -596 -269 596 269
+use sky130_fd_pr__nfet_g5v0d10v5_47AZYF  XMmirror
+timestamp 1757512958
+transform 1 0 2388 0 1 508
+box -328 -508 328 508
+<< labels >>
+flabel metal1 0 972 44 1016 0 FreeSans 80 0 0 0 bias[2]
+port 2 nsew
+flabel metal1 598 972 644 1016 0 FreeSans 80 0 0 0 bias[1]
+port 1 nsew
+flabel metal1 938 972 984 1016 0 FreeSans 80 0 0 0 bias[0]
+port 0 nsew
+flabel metal1 82 972 220 1016 0 FreeSans 160 0 0 0 VPWR
+port 3 nsew
+flabel metal1 2096 972 2234 1016 0 FreeSans 160 0 0 0 VGND
+port 4 nsew
+flabel metal2 2220 0 2298 44 0 FreeSans 160 0 0 0 Vbias
+port 5 nsew
+<< end >>

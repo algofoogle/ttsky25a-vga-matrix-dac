@@ -11,6 +11,7 @@ readnet spice ../xschem/simulation/icell.spice          $schem_netlist_file_hand
 readnet spice ../xschem/simulation/row15x.spice         $schem_netlist_file_handle
 readnet spice ../xschem/simulation/array255x.spice      $schem_netlist_file_handle
 readnet spice ../xschem/simulation/thermo15.spice       $schem_netlist_file_handle
+readnet spice ../xschem/simulation/vbias.spice          $schem_netlist_file_handle
 
 # # Add GL verilog of digital block(s) (i.e. flat file from OpenLane hardening):
 # readnet verilog ../verilog/gl/analog_control_wrapper.pnl.v $schem_netlist_file_handle
