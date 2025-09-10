@@ -1,0 +1,149 @@
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/csdac255.sch
+.subckt csdac255 data[7] data[6] data[5] data[4] data[3] data[2] data[1] data[0] Iout VPWR VGND Vbias bias[2] bias[1] bias[0]
+*.PININFO VPWR:B Iout:O VGND:B bias[2:0]:I data[7:0]:I Vbias:O
+XThR VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8]
++ THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] data[7] data[6] data[5]
++ data[4] thermo15
+XA VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8]
++ THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] THERMO_COLn[14]
++ THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5]
++ THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] Vbias Iout array255x
+XThC VPWR VGND THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8]
++ THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] data[3] data[2] data[1]
++ data[0] thermo15
+XVB VPWR VGND bias[2] bias[1] bias[0] Vbias vbias
+.ends
+
+* expanding   symbol:  thermo15.sym # of pins=4
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/thermo15.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/thermo15.sch
+.subckt thermo15 VPWR VGND Tn[14] Tn[13] Tn[12] Tn[11] Tn[10] Tn[9] Tn[8] Tn[7] Tn[6] Tn[5] Tn[4] Tn[3] Tn[2] Tn[1] Tn[0] d[3]
++ d[2] d[1] d[0]
+*.PININFO VPWR:B d[3:0]:I VGND:B Tn[14:0]:O
+XTA2 d[1] VGND VGND VPWR VPWR TA2 sky130_fd_sc_hd__inv_1
+XTBN TAN2 VGND VGND VPWR VPWR TBN sky130_fd_sc_hd__inv_2
+XTA3 d[0] d[1] VGND VGND VPWR VPWR TA3 sky130_fd_sc_hd__nand2_1
+XTA1 d[0] d[1] VGND VGND VPWR VPWR TA1 sky130_fd_sc_hd__nor2_1
+XTAN d[2] VGND VGND VPWR VPWR TAN sky130_fd_sc_hd__inv_1
+XTB1 TA1 TAN VGND VGND VPWR VPWR TB1 sky130_fd_sc_hd__nand2_1
+XTB2 TA2 TAN VGND VGND VPWR VPWR TB2 sky130_fd_sc_hd__nand2_1
+XTB3 TA3 TAN VGND VGND VPWR VPWR TB3 sky130_fd_sc_hd__nand2_1
+XTB4 TAN VGND VGND VPWR VPWR TB4 sky130_fd_sc_hd__inv_1
+XTB5 TA1 TAN VGND VGND VPWR VPWR TB5 sky130_fd_sc_hd__nor2_1
+XTB6 TA2 TAN VGND VGND VPWR VPWR TB6 sky130_fd_sc_hd__nor2_1
+XTB7 TA3 TAN VGND VGND VPWR VPWR TB7 sky130_fd_sc_hd__nor2_1
+XOTn0 TB1 TBN VGND VGND VPWR VPWR Tn[0] sky130_fd_sc_hd__nor2_4
+XOTn1 TB2 TBN VGND VGND VPWR VPWR Tn[1] sky130_fd_sc_hd__nor2_4
+XOTn2 TB3 TBN VGND VGND VPWR VPWR Tn[2] sky130_fd_sc_hd__nor2_4
+XOTn3 TB4 TBN VGND VGND VPWR VPWR Tn[3] sky130_fd_sc_hd__nor2_4
+XOTn4 TB5 TBN VGND VGND VPWR VPWR Tn[4] sky130_fd_sc_hd__nor2_4
+XOTn5 TB6 TBN VGND VGND VPWR VPWR Tn[5] sky130_fd_sc_hd__nor2_4
+XOTn6 TB7 TBN VGND VGND VPWR VPWR Tn[6] sky130_fd_sc_hd__nor2_4
+XOTn7 TBN VGND VGND VPWR VPWR Tn[7] sky130_fd_sc_hd__inv_4
+XOTn8 TB1 TBN VGND VGND VPWR VPWR Tn[8] sky130_fd_sc_hd__nand2_4
+XOTn9 TB2 TBN VGND VGND VPWR VPWR Tn[9] sky130_fd_sc_hd__nand2_4
+XOTn10 TB3 TBN VGND VGND VPWR VPWR Tn[10] sky130_fd_sc_hd__nand2_4
+XOTn11 TB4 TBN VGND VGND VPWR VPWR Tn[11] sky130_fd_sc_hd__nand2_4
+XOTn12 TB5 TBN VGND VGND VPWR VPWR Tn[12] sky130_fd_sc_hd__nand2_4
+XOTn13 TB6 TBN VGND VGND VPWR VPWR Tn[13] sky130_fd_sc_hd__nand2_4
+XOTn14 TB7 TBN VGND VGND VPWR VPWR Tn[14] sky130_fd_sc_hd__nand2_4
+XTAN2 d[3] VGND VGND VPWR VPWR TAN2 sky130_fd_sc_hd__inv_1
+.ends
+
+
+* expanding   symbol:  array255x.sym # of pins=6
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/array255x.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/array255x.sch
+.subckt array255x VPWR VGND Rn[14] Rn[13] Rn[12] Rn[11] Rn[10] Rn[9] Rn[8] Rn[7] Rn[6] Rn[5] Rn[4] Rn[3] Rn[2] Rn[1] Rn[0] Cn[14]
++ Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] Vbias Iout
+*.PININFO VPWR:B Iout:O VGND:B Vbias:I Cn[14:0]:I Rn[14:0]:I
+XIR[14] Vbias VPWR Rn[14] Rn[13] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[13] Vbias VPWR Rn[13] Rn[12] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[12] Vbias VPWR Rn[12] Rn[11] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[11] Vbias VPWR Rn[11] Rn[10] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[10] Vbias VPWR Rn[10] Rn[9] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout row15x
+XIR[9] Vbias VPWR Rn[9] Rn[8] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[8] Vbias VPWR Rn[8] Rn[7] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[7] Vbias VPWR Rn[7] Rn[6] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[6] Vbias VPWR Rn[6] Rn[5] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[5] Vbias VPWR Rn[5] Rn[4] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[4] Vbias VPWR Rn[4] Rn[3] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[3] Vbias VPWR Rn[3] Rn[2] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[2] Vbias VPWR Rn[2] Rn[1] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[1] Vbias VPWR Rn[1] Rn[0] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[0] Vbias VPWR Rn[0] VGND Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+XIR[15] Vbias VPWR VPWR Rn[14] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND
++ Iout row15x
+.ends
+
+
+* expanding   symbol:  vbias.sym # of pins=4
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/vbias.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/vbias.sch
+.subckt vbias VPWR VGND bias[2] bias[1] bias[0] Vbias
+*.PININFO VPWR:B VGND:B bias[2:0]:I Vbias:O
+XM1 Vbias bias[2] VPWR VPWR sky130_fd_pr__pfet_01v8 L=1 W=0.5 nf=1 m=1
+XM2 Vbias bias[1] VPWR VPWR sky130_fd_pr__pfet_01v8 L=2 W=0.5 nf=1 m=1
+XM3 Vbias bias[0] VPWR VPWR sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 m=1
+XMmirror Vbias Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=1.0 W=2.5 nf=1 m=1
+XM4 Vbias VGND VPWR VPWR sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 m=1
+.ends
+
+
+* expanding   symbol:  row15x.sym # of pins=7
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/row15x.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/row15x.sch
+.subckt row15x Vbias VPWR Sn Rn Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0]
++ VGND Iout
+*.PININFO Sn:I Rn:I Cn[14:0]:I VPWR:B VGND:B Iout:O Vbias:I
+XIC[14] VPWR VGND Rn Cn[14] Sn Vbias Iout icell
+XIC[13] VPWR VGND Rn Cn[13] Sn Vbias Iout icell
+XIC[12] VPWR VGND Rn Cn[12] Sn Vbias Iout icell
+XIC[11] VPWR VGND Rn Cn[11] Sn Vbias Iout icell
+XIC[10] VPWR VGND Rn Cn[10] Sn Vbias Iout icell
+XIC[9] VPWR VGND Rn Cn[9] Sn Vbias Iout icell
+XIC[8] VPWR VGND Rn Cn[8] Sn Vbias Iout icell
+XIC[7] VPWR VGND Rn Cn[7] Sn Vbias Iout icell
+XIC[6] VPWR VGND Rn Cn[6] Sn Vbias Iout icell
+XIC[5] VPWR VGND Rn Cn[5] Sn Vbias Iout icell
+XIC[4] VPWR VGND Rn Cn[4] Sn Vbias Iout icell
+XIC[3] VPWR VGND Rn Cn[3] Sn Vbias Iout icell
+XIC[2] VPWR VGND Rn Cn[2] Sn Vbias Iout icell
+XIC[1] VPWR VGND Rn Cn[1] Sn Vbias Iout icell
+XIC[0] VPWR VGND Rn Cn[0] Sn Vbias Iout icell
+XIC[15] VPWR VGND VPWR VPWR Sn Vbias Iout icell
+XIC_dummy_left VPWR VGND VPWR VPWR VPWR VGND net1 icell
+XIC_dummy_right VPWR VGND VPWR VPWR VPWR VGND net2 icell
+.ends
+
+
+* expanding   symbol:  icell.sym # of pins=7
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/icell.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/icell.sch
+.subckt icell VPWR VGND Rn Cn Sn Vbias Iout
+*.PININFO Rn:I VPWR:B Iout:O VGND:B Cn:I Sn:I Vbias:I
+XMsp Ien Sn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMsna Ien Sn PDM VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcpa Ien Cn PUM VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrpa PUM Rn VPWR VPWR sky130_fd_pr__pfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMrno PDM Rn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMcno PDM Cn VGND VGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 m=1
+XMiu SM Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+XMsw Iout Ien SM VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+.ends
+
