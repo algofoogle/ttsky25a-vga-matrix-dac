@@ -17,7 +17,7 @@ readnet spice ../xschem/simulation/csdac255.spice       $schem_netlist_file_hand
 # # Add GL verilog of digital block(s) (i.e. flat file from OpenLane hardening):
 # readnet verilog ../verilog/gl/analog_control_wrapper.pnl.v $schem_netlist_file_handle
 
-# # Top-level abstract integration verilog:
-# readnet verilog ../src/project.v $schem_netlist_file_handle
+# Top-level abstract integration verilog:
+readnet verilog ../src/project.v $schem_netlist_file_handle
 
 lvs "$layout_netlist_file_handle $layout_name" "$schem_netlist_file_handle $schem_name" $::env(PDK_ROOT)/$::env(PDK)/libs.tech/netgen/sky130A_setup.tcl lvs.report -blackbox

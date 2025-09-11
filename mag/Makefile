@@ -4,26 +4,27 @@ PROJECT_NAME ?= tt_um_algofoogle_vga_matrix_dac
 #NOTE: SCHEMATIC_NAME is only used in LVS, and can be overridden to compare a given layout with a specific schematic SPICE subcircuit:
 SCHEMATIC_NAME ?= $(PROJECT_NAME)
 
-# MAGIC_RC := $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc
+MAGIC_RC := $(PDK_ROOT)/$(PDK)/libs.tech/magic/sky130A.magicrc
+TEMPLATE_FILE := tt_analog_1x2.def
 # TEMPLATE_FILE := tt_analog_2x2.def
-#TEMPLATE_FILE := tt_analog_1x2_3v3.def
+# TEMPLATE_FILE := tt_analog_1x2_3v3.def
 
 .PHONY: lvs magic start
 
 # magic:
 # 	magic -rcfile $(MAGIC_RC) $(PROJECT_NAME).mag
 
-# tt_analog_1x2.def:
-# 	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_1x2.def
+tt_analog_1x2.def:
+	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_1x2.def
 
-# tt_analog_2x2.def:
-# 	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_2x2.def
+tt_analog_2x2.def:
+	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_2x2.def
 
 tt_analog_1x2_3v3.def:
 	wget https://raw.githubusercontent.com/TinyTapeout/tt-support-tools/tt10/def/analog/tt_analog_1x2_3v3.def
 
-# start: $(TEMPLATE_FILE)
-# 	magic -rcfile $(MAGIC_RC) -noconsole -dnull tcl/tt-analog-draw.tcl $(TEMPLATE_FILE) $(PROJECT_NAME)
+start: $(TEMPLATE_FILE)
+	magic -rcfile $(MAGIC_RC) -noconsole -dnull tcl/tt-analog-draw.tcl $(TEMPLATE_FILE) $(PROJECT_NAME)
 
 $(PROJECT_NAME).lvs.spice: $(PROJECT_NAME).mag
 	magic -noconsole -dnull tcl/extract_for_lvs.tcl $(PROJECT_NAME)

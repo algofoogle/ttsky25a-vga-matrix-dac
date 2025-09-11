@@ -2,7 +2,7 @@
 
 # Analog VGA CSDAC experiments (based on Tiny Tapeout Analog template)
 
-Current steering matrix DAC implementations for analog VGA displays.
+Current switching matrix DAC implementations for analog VGA displays.
 
 - [Read the documentation for project](docs/info.md)
 

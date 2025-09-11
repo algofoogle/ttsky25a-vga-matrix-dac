@@ -3,14 +3,23 @@
 Vvcc VPWR VGND 1.8
 Vvpu VAPWR VGND 3.3
 Vvgnd VGND GND 0
-x1 DATA[7] DATA[6] DATA[5] DATA[4] DATA[3] DATA[2] DATA[1] DATA[0] net2 VPWR VGND Vbias net3[2] net3[1] net3[0] csdac255
-x2 VGND VAPWR net2 Vout tt_pin_model
+XDAC DATA[7] DATA[6] DATA[5] DATA[4] DATA[3] DATA[2] DATA[1] DATA[0] net2 VPWR VGND Vbias net3[2] net3[1] net3[0] csdac255
+XTTPIN VGND VAPWR net2 Vout tt_pin_model
 R2 net1 Vout 500 m=1
 Viout VAPWR net1 0
 C1 Vout VGND 3p m=1
 Rbias[2] net3[2] bias[2] 10k m=1
 Rbias[1] net3[1] bias[1] 10k m=1
 Rbias[0] net3[0] bias[0] 10k m=1
+XDAC_PEX net4 VPWR VGND Vbias_pex net5[2] net5[1] net5[0] DATA[0] DATA[1] DATA[2] DATA[3] DATA[4] DATA[5] DATA[6] DATA[7]
++ csdac255_parax
+Rbias1[2] net5[2] bias[2] 10k m=1
+Rbias1[1] net5[1] bias[1] 10k m=1
+Rbias1[0] net5[0] bias[0] 10k m=1
+XTTPIN_PEX VGND VAPWR net4 Vout_pex tt_pin_model
+R1 net6 Vout_pex 500 m=1
+Viout_pex VAPWR net6 0
+C2 Vout_pex VGND 3p m=1
 **** begin user architecture code
 
 
@@ -62,13 +71,14 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 				save
 				+ data[0] data[1] data[2] data[3] data[4] data[5] data[6] data[7]
 				+ bias[0] bias[1] bias[2]
-				+ vbias
-				+ vout i(viout)
+				+ vbias          vbias_pex
+				+ vout i(viout)  vout_pex i(viout_pex)
 				+ i(vvcc)
 				+ i(vvpu)
 				+ i(vvgnd)
 				tran 1n 12.8u
-				write tb_csdac255.raw vbias vout i(viout) i(vvgnd) i(vvcc) i(vvpu)
+				write tb_csdac255.raw vbias vout i(viout) i(vvgnd) i(vvcc) i(vvpu) vbias_pex vout_pex i(viout_pex)
+				write tb_csdac255_all.raw
 				*plot vout vbias i(viout)*1000
 				set appendwrite
 				reset
@@ -96,19 +106,10 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 *.ipin bias[2],bias[1],bias[0]
 *.ipin data[7],data[6],data[5],data[4],data[3],data[2],data[1],data[0]
 *.opin Vbias
-x1 VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8] THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] data[7] data[6] data[5] data[4] thermo15
-x2 VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8] THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] Vbias Iout array255x
-x3 VPWR VGND THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] data[3] data[2] data[1] data[0] thermo15
-XM1 Vbias bias[2] VPWR VPWR sky130_fd_pr__pfet_01v8 L=1 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
-+ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM2 Vbias bias[1] VPWR VPWR sky130_fd_pr__pfet_01v8 L=2 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
-+ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM3 Vbias bias[0] VPWR VPWR sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
-+ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XMmirror Vbias Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=1.0 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf
-+ * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM4 Vbias VGND VPWR VPWR sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
-+ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XThR VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8] THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] data[7] data[6] data[5] data[4] thermo15
+XA VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8] THERMO_ROWn[7] THERMO_ROWn[6] THERMO_ROWn[5] THERMO_ROWn[4] THERMO_ROWn[3] THERMO_ROWn[2] THERMO_ROWn[1] THERMO_ROWn[0] THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] Vbias Iout array255x
+XThC VPWR VGND THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8] THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] data[3] data[2] data[1] data[0] thermo15
+XVB VPWR VGND bias[2] bias[1] bias[0] Vbias vbias
 .ends
 
 
@@ -137,6 +138,10 @@ XM3 net3 VGND VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=60 nf=12 ad='int((n
 C5 mod VGND 250f m=1
 .ends
 
+
+* expanding   symbol:  csdac255_parax.sym # of pins=6
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/csdac255.sym
+.include /home/anton/projects/ttsky25a-vga-matrix-dac/mag/csdac255.sim.spice
 
 * expanding   symbol:  thermo15.sym # of pins=4
 ** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/thermo15.sym
@@ -203,6 +208,27 @@ XIR[2] Vbias VPWR Rn[2] Rn[1] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[
 XIR[1] Vbias VPWR Rn[1] Rn[0] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND Iout row15x
 XIR[0] Vbias VPWR Rn[0] VGND Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND Iout row15x
 XIR[15] Vbias VPWR VPWR Rn[14] Cn[14] Cn[13] Cn[12] Cn[11] Cn[10] Cn[9] Cn[8] Cn[7] Cn[6] Cn[5] Cn[4] Cn[3] Cn[2] Cn[1] Cn[0] VGND Iout row15x
+.ends
+
+
+* expanding   symbol:  vbias.sym # of pins=4
+** sym_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/vbias.sym
+** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/vbias.sch
+.subckt vbias VPWR VGND bias[2] bias[1] bias[0] Vbias
+*.iopin VPWR
+*.iopin VGND
+*.ipin bias[2],bias[1],bias[0]
+*.opin Vbias
+XM1 Vbias bias[2] VPWR VPWR sky130_fd_pr__pfet_01v8 L=1 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
++ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vbias bias[1] VPWR VPWR sky130_fd_pr__pfet_01v8 L=2 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
++ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 Vbias bias[0] VPWR VPWR sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
++ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XMmirror Vbias Vbias VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=1.0 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf
++ * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 Vbias VGND VPWR VPWR sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
++ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 .ends
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Your Name
+ * Copyright (c) 2025 Anton Maurovic
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -19,5 +19,59 @@ module tt_um_algofoogle_vga_matrix_dac (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
+
+    csdac255 dac_red (
+        .VPWR   (VDPWR),
+        .VGND   (VGND),
+        .Vbias  (ua[3]),
+        .data   (ui_in),
+        .bias   (uio_in[2:0]),
+        .Iout   (ua[0])
+    );
+
+    csdac255 dac_green (
+        .VPWR   (VDPWR),
+        .VGND   (VGND),
+        // .Vbias  (ua[3]),
+        .data   (ui_in),
+        .bias   (uio_in[5:3]),
+        .Iout   (ua[1])
+    );
+
+    csdac255 dac_blue (
+        .VPWR   (VDPWR),
+        .VGND   (VGND),
+        // .Vbias  (ua[3]),
+        .data   (ui_in),
+        .bias   (uio_in[5:3]),
+        .Iout   (ua[2])
+    );
+
+    assign uo_out[7] = VGND;
+    assign uo_out[6] = VGND;
+    assign uo_out[5] = VGND;
+    assign uo_out[4] = VGND;
+    assign uo_out[3] = VGND;
+    assign uo_out[2] = VGND;
+    assign uo_out[1] = VGND;
+    assign uo_out[0] = VGND;
+
+    assign uio_out[7] = VGND;
+    assign uio_out[6] = VGND;
+    assign uio_out[5] = VGND;
+    assign uio_out[4] = VGND;
+    assign uio_out[3] = VGND;
+    assign uio_out[2] = VGND;
+    assign uio_out[1] = VGND;
+    assign uio_out[0] = VGND;
+
+    assign uio_oe[7] = VGND;
+    assign uio_oe[6] = VGND;
+    assign uio_oe[5] = VGND;
+    assign uio_oe[4] = VGND;
+    assign uio_oe[3] = VGND;
+    assign uio_oe[2] = VGND;
+    assign uio_oe[1] = VGND;
+    assign uio_oe[0] = VGND;
 
 endmodule
