@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1757606563
+timestamp 1757605323
 << metal2 >>
 rect 173 3651 217 3669
 rect -28 3436 0 3450
@@ -796,67 +796,8 @@ rect 5797 -520 6158 -326
 rect 6190 -520 6551 -326
 rect 6583 -520 6681 -326
 rect 393 -523 6681 -520
-use row15x  XIR[0]
-timestamp 1757605323
-transform 1 0 0 0 1 3480
-box -28 -55 7074 243
-use row15x  XIR[1]
-timestamp 1757605323
-transform 1 0 0 0 1 3248
-box -28 -55 7074 243
-use row15x  XIR[2]
-timestamp 1757605323
-transform 1 0 0 0 1 3016
-box -28 -55 7074 243
-use row15x  XIR[3]
-timestamp 1757605323
-transform 1 0 0 0 1 2784
-box -28 -55 7074 243
-use row15x  XIR[4]
-timestamp 1757605323
-transform 1 0 0 0 1 2552
-box -28 -55 7074 243
-use row15x  XIR[5]
-timestamp 1757605323
-transform 1 0 0 0 1 2320
-box -28 -55 7074 243
-use row15x  XIR[6]
-timestamp 1757605323
-transform 1 0 0 0 1 2088
-box -28 -55 7074 243
-use row15x  XIR[7]
-timestamp 1757605323
-transform 1 0 0 0 1 1856
-box -28 -55 7074 243
-use row15x  XIR[8]
-timestamp 1757605323
-transform 1 0 0 0 1 1624
-box -28 -55 7074 243
-use row15x  XIR[9]
-timestamp 1757605323
-transform 1 0 0 0 1 1392
-box -28 -55 7074 243
-use row15x  XIR[10]
-timestamp 1757605323
-transform 1 0 0 0 1 1160
-box -28 -55 7074 243
-use row15x  XIR[11]
-timestamp 1757605323
-transform 1 0 0 0 1 928
-box -28 -55 7074 243
-use row15x  XIR[12]
-timestamp 1757605323
-transform 1 0 0 0 1 696
-box -28 -55 7074 243
-use row15x  XIR[13]
-timestamp 1757605323
-transform 1 0 0 0 1 464
-box -28 -55 7074 243
-use row15x  XIR[14]
-timestamp 1757605323
-transform 1 0 0 0 1 232
-box -28 -55 7074 243
-use row15x  XIR[15]
+use row15x  XIR
+array 1 1 7074 15 0 232
 timestamp 1757605323
 transform 1 0 0 0 1 0
 box -28 -55 7074 243

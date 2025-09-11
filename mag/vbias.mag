@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1757512958
+timestamp 1757605323
 << viali >>
 rect 1860 548 1894 786
 rect 184 514 1894 548
@@ -68,23 +68,23 @@ rect 744 366 838 488
 rect 744 258 838 264
 rect 2220 0 2298 408
 use sky130_fd_pr__pfet_01v8_B3DYZW  XM1
-timestamp 1757512958
+timestamp 1757605323
 transform 1 0 548 0 1 315
 box -296 -269 296 269
 use sky130_fd_pr__pfet_01v8_8JDY5S  XM2
-timestamp 1757512958
+timestamp 1757605323
 transform 1 0 448 0 1 747
 box -396 -269 396 269
 use sky130_fd_pr__pfet_01v8_9JDYDD  XM3
-timestamp 1757512958
+timestamp 1757605323
 transform 1 0 1334 0 1 747
 box -596 -269 596 269
 use sky130_fd_pr__pfet_01v8_9JDYDD  XM4
-timestamp 1757512958
+timestamp 1757605323
 transform 1 0 1334 0 1 315
 box -596 -269 596 269
 use sky130_fd_pr__nfet_g5v0d10v5_47AZYF  XMmirror
-timestamp 1757512958
+timestamp 1757605323
 transform 1 0 2388 0 1 508
 box -328 -508 328 508
 << labels >>
