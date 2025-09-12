@@ -1,12 +1,15 @@
 magic
 tech sky130A
-timestamp 1757680644
+timestamp 1757691164
 << metal1 >>
 rect 100 212 118 243
-rect 89 163 118 212
-rect 60 158 118 163
+rect 89 195 118 212
+rect 89 163 115 195
+rect 60 158 115 163
 rect 60 127 65 158
-rect 94 127 118 158
+rect 94 134 115 158
+rect 173 167 217 243
+rect 94 127 118 134
 rect 60 122 118 127
 rect 100 77 118 122
 rect 0 72 118 77
@@ -15,7 +18,6 @@ rect 34 63 118 72
 rect 34 41 39 63
 rect 0 36 39 41
 rect 100 0 118 63
-rect 173 167 217 243
 rect 173 126 178 167
 rect 212 126 217 167
 rect 324 169 363 174
@@ -106,9 +108,9 @@ rect 240 12 265 44
 rect 297 12 320 44
 rect 240 7 320 12
 use icell  icell
-timestamp 1757680644
+timestamp 1757691099
 transform 1 0 0 0 1 0
-box 0 -6 393 243
+box 0 0 393 243
 << labels >>
 flabel metal3 0 220 30 232 0 FreeSans 40 0 0 0 VPWR
 port 1 nsew
