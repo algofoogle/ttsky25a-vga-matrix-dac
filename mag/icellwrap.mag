@@ -1,12 +1,6 @@
 magic
 tech sky130A
-timestamp 1757605323
-<< nwell >>
-rect 0 -27 86 0
-<< pwell >>
-rect 86 -27 393 0
-<< nsubdiff >>
-rect 18 -9 68 19
+timestamp 1757659099
 << metal1 >>
 rect 100 212 118 243
 rect 89 207 118 212
