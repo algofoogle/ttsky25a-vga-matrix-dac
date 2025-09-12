@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1757605323
+timestamp 1757682969
 << nwell >>
 rect 0 0 86 243
 << pwell >>
@@ -76,7 +76,8 @@ rect 39 30 68 47
 rect 18 18 68 30
 << mvpsubdiff >>
 rect 169 16 185 33
-rect 205 16 221 33
+rect 205 16 223 33
+rect 198 10 223 16
 << nsubdiffcont >>
 rect 22 30 39 47
 << mvpsubdiffcont >>
