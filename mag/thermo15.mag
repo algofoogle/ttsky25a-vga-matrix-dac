@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1757695336
+timestamp 1757770680
 << locali >>
 rect -220 404 -172 410
 rect -220 370 -214 404
@@ -1638,4 +1638,17 @@ flabel metal4 -918 -7616 -678 640 0 FreeSans 1600 90 0 0 VPWR
 port 90 nsew
 flabel metal4 -618 -7616 -378 640 0 FreeSans 1600 90 0 0 VGND
 port 91 nsew
+flabel metal2 -290 -3166 -262 -3112 0 FreeSans 80 90 0 0 TA1
+flabel metal2 250 -2032 278 -1958 0 FreeSans 80 90 0 0 TB5
+flabel metal2 318 -2492 346 -2434 0 FreeSans 80 90 0 0 TB6
+flabel metal2 386 -3078 414 -3016 0 FreeSans 80 90 0 0 TB7
+flabel metal2 734 -3672 844 -3620 0 FreeSans 80 0 0 0 TBN
+flabel metal2 -22 -662 6 -608 0 FreeSans 80 90 0 0 TB1
+flabel metal2 46 -662 74 -608 0 FreeSans 80 90 0 0 TB2
+flabel metal2 114 -988 142 -934 0 FreeSans 80 90 0 0 TB3
+flabel metal2 182 -1382 210 -1328 0 FreeSans 80 90 0 0 TB4
+flabel metal2 -214 -3166 -186 -3112 0 FreeSans 80 90 0 0 TA2
+flabel metal2 -40 -4562 -12 -4502 0 FreeSans 80 90 0 0 TA3
+flabel metal2 -132 -2490 -80 -2406 0 FreeSans 80 90 0 0 TAN
+flabel metal2 472 -5316 520 -5222 0 FreeSans 80 90 0 0 TAN2
 << end >>

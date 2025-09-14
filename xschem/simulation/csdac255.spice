@@ -1,4 +1,4 @@
-** sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/csdac255.sch
+** GRRR sch_path: /home/anton/projects/ttsky25a-vga-matrix-dac/xschem/csdac255.sch
 .subckt csdac255 data[7] data[6] data[5] data[4] data[3] data[2] data[1] data[0] Iout VPWR VGND Vbias bias[2] bias[1] bias[0]
 *.PININFO VPWR:B Iout:O VGND:B bias[2:0]:I data[7:0]:I Vbias:O
 XThR VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THERMO_ROWn[10] THERMO_ROWn[9] THERMO_ROWn[8]
@@ -11,7 +11,14 @@ XA VPWR VGND THERMO_ROWn[14] THERMO_ROWn[13] THERMO_ROWn[12] THERMO_ROWn[11] THE
 XThC VPWR VGND THERMO_COLn[14] THERMO_COLn[13] THERMO_COLn[12] THERMO_COLn[11] THERMO_COLn[10] THERMO_COLn[9] THERMO_COLn[8]
 + THERMO_COLn[7] THERMO_COLn[6] THERMO_COLn[5] THERMO_COLn[4] THERMO_COLn[3] THERMO_COLn[2] THERMO_COLn[1] THERMO_COLn[0] data[3] data[2] data[1]
 + data[0] thermo15
+
+
+*** ANTON
 XVB VPWR VGND bias[2] bias[1] bias[0] Vbias vbias
+* XCVb Vbias VGND sky130_fd_pr__cap_mim_m3_1 W=11.82 L=4.81 m=1
+XCVb Vbias VGND sky130_fd_pr__cap_mim_m3_1 W=4 L=4 m=1
+
+
 .ends
 
 * expanding   symbol:  thermo15.sym # of pins=4
