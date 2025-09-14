@@ -1,0 +1,58 @@
+{
+  "DESIGN_NAME": "controller_wrapper",
+  "RT_MAX_LAYER": "met4",
+  "VERILOG_FILES": [
+    "dir::verilog/rtl/vga_sync.v",
+    "dir::verilog/rtl/controller.v",
+    "dir::verilog/rtl/controller_wrapper.v"
+  ],
+  "CLOCK_PERIOD": 40,
+  "CLOCK_PORT": "clk",
+  "////CLOCK_NET": "controller_wrapper.clk",
+
+  "DIE_AREA": "0 0 57.5 219",
+  "PL_TARGET_DENSITY_PCT": 91,
+  "////FP_CORE_UTIL": 80,
+
+  "FP_PIN_ORDER_CFG": "dir::openlane/pin_order.cfg",
+
+  "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+  "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+
+  "////ROUTING_CORES": 16,
+
+  "//": "PDN",
+  "////FP_PDN_VOFFSET": 5,
+  "////FP_PDN_HOFFSET": 5,
+  "////FP_PDN_VWIDTH": 2,
+  "////FP_PDN_HWIDTH": 2,
+  "////FP_PDN_VPITCH": 30,
+  "////FP_PDN_HPITCH": 30,
+  "////FP_PDN_SKIPTRIM": true,
+
+  "FP_PDN_VPITCH": 38.87,
+  "FP_PDN_MULTILAYER": 0,
+
+  "////SYNTH_READ_BLACKBOX_LIB": 1,
+
+  "RUN_CTS": 1,
+  "RUN_LINTER": 1,
+  "LINTER_INCLUDE_PDK_MODELS": 1,
+
+  "TOP_MARGIN_MULT": 1,
+  "BOTTOM_MARGIN_MULT": 1,
+  "LEFT_MARGIN_MULT": 6,
+  "RIGHT_MARGIN_MULT": 6,
+
+  "GRT_ALLOW_CONGESTION": 1,
+  "FP_IO_HLENGTH": 2,
+  "FP_IO_VLENGTH": 2,
+
+  "FP_SIZING": "absolute",
+
+  "RUN_KLAYOUT_XOR": 0,
+  "RUN_KLAYOUT_DRC": 0,
+  "DESIGN_REPAIR_BUFFER_OUTPUT_PORTS": 0,
+  "MAGIC_DEF_LABELS": 0,
+  "MAGIC_WRITE_LEF_PINONLY": 1
+}
