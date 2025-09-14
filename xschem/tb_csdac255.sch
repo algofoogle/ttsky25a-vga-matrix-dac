@@ -32,16 +32,18 @@ rainbow=1
 
 
 
-color="7 7 7 7"
+color="7 7 7 7 4 4"
 node="vout
 vbias
 \\"nom mA;i(xvvccnom) 1000 *\\"
-\\"out mA;i(viout) 1000 *\\""
-y1=0.00023
-y2=4.2
-x1=0
+\\"out mA;i(viout) 1000 *\\"
+vout_pex
+vbias_pex"
+y1=1.3848468
+y2=2.5285093
+x1=8.3389247e-06
 dataset=-1
-x2=1.28e-05}
+x2=1.0662685e-05}
 N 410 -1010 410 -990 {lab=#net1}
 N 410 -1090 410 -1070 {lab=VAPWR}
 N 410 -930 410 -910 {lab=Vout}
