@@ -10,8 +10,8 @@
   "CLOCK_PORT": "clk",
   "////CLOCK_NET": "controller_wrapper.clk",
 
-  "DIE_AREA": "0 0 57.5 219",
-  "PL_TARGET_DENSITY_PCT": 91,
+  "DIE_AREA": "0 0 57 219.5",
+  "PL_TARGET_DENSITY_PCT": 88,
   "////FP_CORE_UTIL": 80,
 
   "FP_PIN_ORDER_CFG": "dir::openlane/pin_order.cfg",
@@ -30,7 +30,7 @@
   "////FP_PDN_HPITCH": 30,
   "////FP_PDN_SKIPTRIM": true,
 
-  "FP_PDN_VPITCH": 38.87,
+  "FP_PDN_VPITCH": 32.00,
   "FP_PDN_MULTILAYER": 0,
 
   "////SYNTH_READ_BLACKBOX_LIB": 1,
@@ -42,7 +42,7 @@
   "TOP_MARGIN_MULT": 1,
   "BOTTOM_MARGIN_MULT": 1,
   "LEFT_MARGIN_MULT": 6,
-  "RIGHT_MARGIN_MULT": 6,
+  "RIGHT_MARGIN_MULT": 2,
 
   "GRT_ALLOW_CONGESTION": 1,
   "FP_IO_HLENGTH": 2,
