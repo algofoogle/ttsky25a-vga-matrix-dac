@@ -15,7 +15,7 @@ readnet spice ../xschem/simulation/vbias.spice          $schem_netlist_file_hand
 readnet spice ../xschem/simulation/csdac255.spice       $schem_netlist_file_handle
 
 # # Add GL verilog of digital block(s) (i.e. flat file from OpenLane hardening):
-# readnet verilog ../verilog/gl/analog_control_wrapper.pnl.v $schem_netlist_file_handle
+readnet verilog ../verilog/gl/controller_wrapper.pnl.v  $schem_netlist_file_handle
 
 # Top-level abstract integration verilog:
 readnet verilog ../src/project.v $schem_netlist_file_handle

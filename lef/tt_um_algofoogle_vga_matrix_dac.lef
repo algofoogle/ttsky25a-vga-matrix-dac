@@ -484,8 +484,8 @@ MACRO tt_um_algofoogle_vga_matrix_dac
     END
   END VGND
   PIN VDPWR
-    ANTENNAGATEAREA 273.251007 ;
-    ANTENNADIFFAREA 859.333008 ;
+    DIRECTION INOUT ;
+    USE POWER ;
     PORT
       LAYER met4 ;
         RECT 120.620 5.000 122.220 221.000 ;
@@ -496,6 +496,7 @@ MACRO tt_um_algofoogle_vga_matrix_dac
     END
   END VDPWR
   PIN VGND
+    DIRECTION INOUT ;
     USE GROUND ;
     PORT
       LAYER met4 ;

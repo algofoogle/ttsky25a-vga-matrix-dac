@@ -55,6 +55,8 @@ module tt_um_algofoogle_vga_matrix_dac (
     );
 
     controller_wrapper controller_wrapper (
+        .VPWR   (VDPWR),
+        .VGND   (VGND),
         .ui_in  (ui_in),
         .uo_out (uo_out),
         .uio_in2(uio_in[2]),
@@ -85,7 +87,7 @@ module tt_um_algofoogle_vga_matrix_dac (
     assign uio_oe[4] = VGND;
     assign uio_oe[3] = VGND;
     assign uio_oe[2] = VGND;
-    assign uio_oe[1] =  VPWR;
-    assign uio_oe[0] =  VPWR;
+    assign uio_oe[1] =  VDPWR;
+    assign uio_oe[0] =  VDPWR;
 
 endmodule

@@ -1341,13 +1341,13 @@ port 51 nsew power bidirectional
 flabel metal4 1120 1000 1840 44152 1 FreeSans 3200 90 0 0 VGND
 port 52 nsew ground bidirectional
 flabel metal4 24124 1000 24444 44200 0 FreeSans 1600 90 0 0 VDPWR
-port 53 nsew
+port 53 nsew power bidirectional
 flabel metal4 24784 1000 25104 44200 0 FreeSans 1600 90 0 0 VGND
-port 54 nsew
+port 54 nsew ground bidirectional
 flabel metal4 30524 1000 30844 44200 0 FreeSans 1600 90 0 0 VDPWR
-port 53 nsew
+port 53 nsew power bidirectional
 flabel metal4 31184 1000 31504 44200 0 FreeSans 1600 90 0 0 VGND
-port 54 nsew
+port 54 nsew ground bidirectional
 << properties >>
 string FIXED_BBOX 0 0 32200 45152
 << end >>
