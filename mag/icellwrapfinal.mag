@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1757695336
+timestamp 1757954071
 << locali >>
 rect 21 195 109 212
 << metal1 >>
@@ -134,7 +134,7 @@ rect 0 12 265 44
 rect 297 12 393 44
 rect 0 7 393 12
 use icell  icell
-timestamp 1757695336
+timestamp 1757954071
 transform 1 0 0 0 1 0
 box 0 -4 393 243
 << labels >>

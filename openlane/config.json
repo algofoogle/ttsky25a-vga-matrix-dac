@@ -11,7 +11,7 @@
   "////CLOCK_NET": "controller_wrapper.clk",
 
   "DIE_AREA": "0 0 57 219.5",
-  "PL_TARGET_DENSITY_PCT": 88,
+  "PL_TARGET_DENSITY_PCT": 89,
   "////FP_CORE_UTIL": 80,
 
   "FP_PIN_ORDER_CFG": "dir::openlane/pin_order.cfg",

@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1757695336
+timestamp 1757954071
 << viali >>
 rect 1860 548 1894 786
 rect 184 514 1894 548
@@ -47,44 +47,44 @@ rect 938 128 2108 224
 rect 2096 82 2108 128
 rect 2142 884 2634 968
 rect 2142 82 2154 884
-rect 2220 654 2388 836
+rect 2220 752 2388 836
 rect 2512 758 2634 884
-rect 2298 408 2388 654
-rect 2220 180 2388 408
+rect 2298 186 2388 752
 rect 2494 264 2634 758
 rect 2668 264 2680 968
 rect 2494 258 2680 264
+rect 2220 180 2388 186
 rect 2096 36 2154 82
 << via1 >>
 rect 744 696 838 798
 rect 744 264 838 366
-rect 2220 408 2298 654
+rect 2220 186 2298 752
 << metal2 >>
 rect 744 798 838 804
 rect 744 574 838 696
-rect 2220 654 2298 660
+rect 2220 752 2298 758
 rect 744 488 2220 574
 rect 744 366 838 488
 rect 744 258 838 264
-rect 2220 0 2298 408
+rect 2220 0 2298 186
 use sky130_fd_pr__pfet_01v8_B3DYZW  XM1
-timestamp 1757695336
+timestamp 1757954071
 transform 1 0 548 0 1 315
 box -296 -269 296 269
 use sky130_fd_pr__pfet_01v8_8JDY5S  XM2
-timestamp 1757695336
+timestamp 1757954071
 transform 1 0 448 0 1 747
 box -396 -269 396 269
 use sky130_fd_pr__pfet_01v8_9JDYDD  XM3
-timestamp 1757695336
+timestamp 1757954071
 transform 1 0 1334 0 1 747
 box -596 -269 596 269
 use sky130_fd_pr__pfet_01v8_9JDYDD  XM4
-timestamp 1757695336
+timestamp 1757954071
 transform 1 0 1334 0 1 315
 box -596 -269 596 269
 use sky130_fd_pr__nfet_g5v0d10v5_47AZYF  XMmirror
-timestamp 1757695336
+timestamp 1757954071
 transform 1 0 2388 0 1 508
 box -328 -508 328 508
 << labels >>
