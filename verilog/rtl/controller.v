@@ -6,9 +6,9 @@ module controller(
   input   wire [7:0]  ui_in,             //NOTE: See https://github.com/algofoogle/journal/blob/master/0215-2024-08-21.md#explanation-of-digital-block-control-inputs
   output  wire        hsync, vsync,      // Polarity determined by vga_sync module per vga_timing_mode.
   output  wire        hblank, vblank,    // High during blanking.
-  output  wire [7:0]  r, g, b,           // Positive colour channel bits. Primarily goes to DACs.
-  output  wire [7:0]  rn, gn, bn,        // INVERTED channel bits (for current steering).
-  output  wire        r7,g7,b7, r6,g6,b6 // Extra convenience outputs to wire up to digital outs on the north side of the macro.
+  output  wire [7:0]  r, g, b            // Positive colour channel bits. Primarily goes to DACs.
+  // output  wire [7:0]  rn, gn, bn,        // INVERTED channel bits (for current steering).
+  // output  wire        r7,g7,b7, r6,g6,b6 // Extra convenience outputs to wire up to digital outs on the north side of the macro.
 );
   localparam MODE_PASS = 0;
   localparam MODE_RAMP = 1;
@@ -23,8 +23,8 @@ module controller(
   reg [7:0] voffset;
   wire [9:0] vv = v + {2'b00,voffset};
 
-  assign {r7,r6, g7,g6, b7,b6} = {r[7:6], g[7:6], b[7:6]};
-  assign {rn, gn, bn} = ~{r, g, b}; // Inverted outputs for current steering DACs.
+  // assign {r7,r6, g7,g6, b7,b6} = {r[7:6], g[7:6], b[7:6]};
+  // assign {rn, gn, bn} = ~{r, g, b}; // Inverted outputs for current steering DACs.
 
   wire [9:0] h, v;
   wire hmax, vmax, visible; // Used to detect end of frame.

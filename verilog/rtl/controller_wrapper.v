@@ -4,9 +4,10 @@ module controller_wrapper (
     // Standard TT digital IOs, on the North side:
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+    input wire        uio_in2,  // bias[0]
+    input wire        uio_in3,  // bias[1]
+    input wire        uio_in4,  // bias[2]
+    output wire [1:0] uio_out,  // IOs: Output path
     input  wire       ena,      // always 1 when the design is powered, so you can ignore it
     input  wire       clk,      // clock
     input  wire       rst_n,    // reset_n - low to reset
@@ -16,9 +17,9 @@ module controller_wrapper (
     output wire [7:0] G,
     output wire [7:0] B,
     // Vbias controls (the R/G/B colour channels' biases are copies of each other):
-    output wire Rbias1, Rbias2, Rbias3,
-    output wire Gbias1, Gbias2, Gbias3,
-    output wire Bbias1, Bbias2, Bbias3
+    output wire [2:0] Rbias,
+    output wire [2:0] Gbias,
+    output wire [2:0] Bbias
 );
 
     // VGA signals
@@ -38,22 +39,17 @@ module controller_wrapper (
         rgb[23], rgb[15], rgb[7]
     };
 
-    assign uio_oe       = 8'b00000011; // 0=input, 1=output.
-    assign uio_out[7:2] =   6'b000000; // Unused output paths.
+    // assign uio_oe       = 8'b00000011; // 0=input, 1=output.
+    // assign uio_out[7:2] =   6'b000000; // Unused output paths.
 
     // List all unused inputs to prevent warnings
-    wire _unused = &{ena, uio_in[4:0], 1'b0};
+    wire _unused = &{ena, 1'b0};
 
-    wire bias1 = uio_in[5];
-    wire bias2 = uio_in[6];
-    wire bias3 = uio_in[7];
+    wire [2:0] bias = {uio_in4, uio_in3, uio_in2};
 
-    assign {Rbias1,Rbias2,Rbias3} = {bias1,bias2,bias3};
-    assign {Gbias1,Gbias2,Gbias3} = {bias1,bias2,bias3};
-    assign {Bbias1,Bbias2,Bbias3} = {bias1,bias2,bias3};
-    // wire usewobble      = ui_in[4];
-    // wire mixnoise       = ui_in[3];
-    // wire [2:0] inymode  = ui_in[2:0];
+    assign Rbias = bias;
+    assign Gbias = bias;
+    assign Bbias = bias;
 
     controller vga_pattern_gen(
         .clk        (clk),
@@ -65,10 +61,7 @@ module controller_wrapper (
         .vblank     (uio_out[0]),
         .b          (rgb[23:16]),   // Positive colour channel bits. Primarily goes to DACs.
         .g          (rgb[15:8]),
-        .r          (rgb[7:0]),
-        .rn(), .gn(), .bn(),
-        .r7(), .g7(), .b7(),
-        .r6(), .g6(), .b6()
+        .r          (rgb[7:0])
         //output  wire [7:0]  rn, gn, bn,        // INVERTED channel bits (for current steering).
         //output  wire        r7,g7,b7, r6,g6,b6 // Extra convenience outputs to wire up to digital outs on the north side of the macro.
     );
