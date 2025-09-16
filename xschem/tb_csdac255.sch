@@ -19,7 +19,7 @@ ylabmag=1
 unitx=1
 logx=0
 logy=0
-rainbow=1
+rainbow=0
 
 
 
@@ -39,11 +39,13 @@ vbias
 \\"out mA;i(viout) 1000 *\\"
 vout_pex
 vbias_pex"
-y1=2.6e-05
+y1=9.9e-05
 y2=3.3
 x1=0
-dataset=-1
-x2=1.28e-05}
+dataset=1
+x2=4.7535505e-06}
+T {Peg Vbias_pex
+hard to 1.21V} 170 -540 0 0 0.4 0.4 {}
 N 410 -1010 410 -990 {lab=#net1}
 N 410 -1090 410 -1070 {lab=VAPWR}
 N 410 -930 410 -910 {lab=Vout}
@@ -67,7 +69,7 @@ C {devices/gnd.sym} 840 -1040 0 0 {name=l2 lab=GND}
 C {lab_pin.sym} 960 -1100 0 0 {name=p1 sig_type=std_logic lab=VPWR}
 C {devices/vsource.sym} 1080 -1070 0 0 {name=Vvpu value="3.3" savecurrent=false}
 C {lab_pin.sym} 1080 -1100 0 0 {name=p5 sig_type=std_logic lab=VAPWR}
-C {devices/simulator_commands.sym} 490 -1090 0 0 {name=COMMANDS2
+C {devices/simulator_commands.sym} 500 -1090 0 0 {name=COMMANDS2
 simulator=ngspice
 only_toplevel=false 
 value="
@@ -213,4 +215,15 @@ value=3p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 370 -290 0 0 {name=l4 lab=VGND}
-C {csdac255.sym} 260 -180 0 0 {name=XDAC_PEX}
+C {csdac255.sym} 260 -180 0 0 {name=XDAC_PEX
+schematic=csdac255_parax.sim
+spice_sym_def="tcleval(.include [file normalize ../mag/csdac255.sim.spice])"
+tclcommand="textwindow [file normalize ../mag/csdac255.sim.spice]"}
+C {devices/vsource.sym} 50 -510 0 0 {name=Vvbpexhard value="1.21" savecurrent=false}
+C {lab_pin.sym} 50 -480 0 1 {name=p22 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 50 -600 0 1 {name=p23 sig_type=std_logic lab=Vbias_pex}
+C {res.sym} 50 -570 0 0 {name=R3
+value=100
+footprint=1206
+device=resistor
+m=1}

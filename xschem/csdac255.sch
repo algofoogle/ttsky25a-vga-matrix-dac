@@ -24,7 +24,7 @@ C {iopin.sym} 220 -230 0 1 {name=p5 lab=VGND}
 C {ipin.sym} 220 -190 0 0 {name=p7 lab=bias[2:0]}
 C {ipin.sym} 220 -290 0 0 {name=p12 lab=data[7:0]}
 C {lab_pin.sym} 440 -460 0 0 {name=p13 sig_type=std_logic lab=data[7:4]}
-C {lab_pin.sym} 280 -320 0 0 {name=p14 sig_type=std_logic lab=data[3:0]}
+C {lab_pin.sym} 200 -320 0 0 {name=p14 sig_type=std_logic lab=data[3:0]}
 C {lab_pin.sym} 740 -460 0 1 {name=p15 sig_type=std_logic lab=VPWR}
 C {lab_pin.sym} 740 -320 0 1 {name=p17 sig_type=std_logic lab=VPWR}
 C {lab_pin.sym} 740 -400 0 1 {name=p20 sig_type=std_logic lab=VGND}
@@ -45,3 +45,4 @@ footprint=1206
 device="ceramic capacitor"}
 C {sky130_stdcells/dlygate4sd3_1.sym} 400 -320 0 0 {name=XDLYC[3:0] VGND=VGND VNB=VGND VPB=VPWR VPWR=VPWR prefix=sky130_fd_sc_hd__ }
 C {sky130_stdcells/dlygate4sd3_1.sym} 320 -320 0 0 {name=XDLYC1[3:0] VGND=VGND VNB=VGND VPB=VPWR VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/dlygate4sd3_1.sym} 240 -320 0 0 {name=XDLYC2[3:0] VGND=VGND VNB=VGND VPB=VPWR VPWR=VPWR prefix=sky130_fd_sc_hd__ }

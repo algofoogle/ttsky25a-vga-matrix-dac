@@ -19,7 +19,7 @@ ylabmag=1
 unitx=1
 logx=0
 logy=0
-rainbow=1
+rainbow=0
 
 
 
@@ -32,14 +32,8 @@ rainbow=1
 
 
 
-color="7 7 7 7 4 4 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17"
-node="vout
-vbias
-\\"nom mA;i(xvvccnom) 1000 *\\"
-\\"out mA;i(viout) 1000 *\\"
-vout_pex
-vbias_pex
-\\"R14; xdac_pex.xthr.tn[14] 2 / 14 + 0.1 *\\"
+color="9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 7 7 7 7 4 4 4"
+node="\\"R14; xdac_pex.xthr.tn[14] 2 / 14 + 0.1 *\\"
 \\"R13; xdac_pex.xthr.tn[13] 2 / 13 + 0.1 *\\"
 \\"R12; xdac_pex.xthr.tn[12] 2 / 12 + 0.1 *\\"
 \\"R11; xdac_pex.xthr.tn[11] 2 / 11 + 0.1 *\\"
@@ -68,7 +62,15 @@ vbias_pex
 \\"C3;  xdac_pex.xthc.tn[3]  2 /  3 + 16 + 0.1 *\\"
 \\"C2;  xdac_pex.xthc.tn[2]  2 /  2 + 16 + 0.1 *\\"
 \\"C1;  xdac_pex.xthc.tn[1]  2 /  1 + 16 + 0.1 *\\"
-\\"C0;  xdac_pex.xthc.tn[0]  2 /  0 + 16 + 0.1 *\\""
+\\"C0;  xdac_pex.xthc.tn[0]  2 /  0 + 16 + 0.1 *\\"
+
+vout
+vbias
+\\"nom mA;i(xvvccnom) 1000 *\\"
+\\"out mA;i(viout) 1000 *\\"
+vout_pex
+vbias_pex
+\\"pex out mA;i(viout_pex) 1000 *\\""
 y1=6.3e-05
 y2=3.3
 x1=0

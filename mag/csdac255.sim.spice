@@ -2838,7 +2838,7 @@ X2831 VGND.t2156 XThC.Tn[13].t43 XA.XIR[3].XIC[13].icell.PDM VGND.t2155 sky130_f
 *** ANTON
 * X2832 Vbias.t260 VGND.t922 sky130_fd_pr__cap_mim_m3_1 l=4.81 w=11.82
 *X2832 Vbias.t260 VGND.t922 sky130_fd_pr__cap_mim_m3_1 l=2e+07u w=2e+07u
-CVb Vbias.t260 VGND.t922 120f
+*CVb Vbias.t260 VGND.t922 120f
 
 
 X2833 XA.XIR[3].XIC_dummy_left.icell.PDM VPWR.t2068 XA.XIR[3].XIC_dummy_left.icell.Ien VGND.t1520 sky130_fd_pr__nfet_01v8 ad=0.0725 pd=0.79 as=0.2304 ps=2.18 w=0.5 l=0.15
