@@ -255,4 +255,5 @@ port 12 nsew
 flabel locali 130 201 136 215 0 FreeSans 80 0 0 0 PDM
 << properties >>
 string FIXED_BBOX 0 0 393 232
+string MASKHINTS_HVI 256 -18 329 236
 << end >>
