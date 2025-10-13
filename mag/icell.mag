@@ -76,12 +76,12 @@ rect 18 50 68 61
 rect 18 33 22 50
 rect 39 33 68 50
 rect 18 14 68 33
-<< mvpsubdiff >>
+<< psubdiff >>
 rect 206 32 223 44
 rect 206 2 223 15
 << nsubdiffcont >>
 rect 22 33 39 50
-<< mvpsubdiffcont >>
+<< psubdiffcont >>
 rect 206 15 223 32
 << poly >>
 rect 87 204 114 212
@@ -255,5 +255,4 @@ port 12 nsew
 flabel locali 130 201 136 215 0 FreeSans 80 0 0 0 PDM
 << properties >>
 string FIXED_BBOX 0 0 393 232
-string MASKHINTS_HVI 256 -18 329 236
 << end >>
