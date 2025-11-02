@@ -32,38 +32,39 @@ rainbow=0
 
 
 
-color="7 7 7 7 4 4"
+color="7 10 12 7 7 4 10"
 node="vout
 vbias
+\\"i(vbpwrmon) 1000 *\\"
 \\"nom mA;i(xvvccnom) 1000 *\\"
 \\"out mA;i(viout) 1000 *\\"
-vout_pex
-vbias_pex"
-y1=9.9e-05
+xvout_pex
+xvbias_pex"
+y1=2e-05
 y2=3.3
 x1=0
-dataset=1
-x2=4.7535505e-06}
-T {Peg Vbias_pex
-hard to 1.21V} 170 -540 0 0 0.4 0.4 {}
+x2=1.28e-05
+dataset=-1}
 N 410 -1010 410 -990 {lab=#net1}
 N 410 -1090 410 -1070 {lab=VAPWR}
 N 410 -930 410 -910 {lab=Vout}
 N 20 -910 110 -910 {lab=#net2}
 N 20 -910 20 -800 {lab=#net2}
-N 20 -800 370 -800 {lab=#net2}
-N 370 -800 370 -770 {lab=#net2}
+N 370 -700 370 -670 {lab=#net2}
 N 290 -910 440 -910 {lab=Vout}
-N 150 -750 150 -700 {lab=#net3}
+N 150 -650 150 -600 {lab=#net3}
 N 370 -240 370 -210 {lab=#net4}
 N 150 -190 150 -140 {lab=#net5}
-N 410 -450 410 -430 {lab=#net6}
-N 410 -530 410 -510 {lab=VAPWR}
-N 410 -370 410 -350 {lab=Vout_pex}
-N 20 -350 110 -350 {lab=#net4}
-N 20 -350 20 -240 {lab=#net4}
-N 290 -350 440 -350 {lab=Vout_pex}
-N 20 -240 370 -240 {lab=#net4}
+N 410 -500 410 -480 {lab=#net6}
+N 410 -580 410 -560 {lab=VAPWR}
+N 410 -420 410 -400 {lab=Vout_pex}
+N 20 -400 110 -400 {lab=#net4}
+N 20 -400 20 -290 {lab=#net4}
+N 290 -400 440 -400 {lab=Vout_pex}
+N 20 -800 370 -800 {lab=#net2}
+N 370 -800 370 -700 {lab=#net2}
+N 20 -290 370 -290 {lab=#net4}
+N 370 -290 370 -240 {lab=#net4}
 C {devices/vsource.sym} 960 -1070 0 0 {name=Vvcc value="1.8" savecurrent=false}
 C {devices/gnd.sym} 840 -1040 0 0 {name=l2 lab=GND}
 C {lab_pin.sym} 960 -1100 0 0 {name=p1 sig_type=std_logic lab=VPWR}
@@ -125,6 +126,7 @@ Vxp7 DATA[7]  GND pulse 1.8v 0v 0n 1n 1n 5119n 10240n
 				+ i(vvcc)
 				+ i(vvpu)
 				+ i(vvgnd)
+				+ i(vbpwrmon)
 				+ "XDAC.THERMO_ROWn[0]" "XDAC.THERMO_ROWn[1]" "XDAC.THERMO_ROWn[2]" "XDAC.THERMO_ROWn[3]" "XDAC.THERMO_ROWn[4]" "XDAC.THERMO_ROWn[5]" "XDAC.THERMO_ROWn[6]" "XDAC.THERMO_ROWn[7]" "XDAC.THERMO_ROWn[8]" "XDAC.THERMO_ROWn[9]" "XDAC.THERMO_ROWn[10]" "XDAC.THERMO_ROWn[11]" "XDAC.THERMO_ROWn[12]" "XDAC.THERMO_ROWn[13]" "XDAC.THERMO_ROWn[14]"
 				+ "XDAC.THERMO_COLn[0]" "XDAC.THERMO_COLn[1]" "XDAC.THERMO_COLn[2]" "XDAC.THERMO_COLn[3]" "XDAC.THERMO_COLn[4]" "XDAC.THERMO_COLn[5]" "XDAC.THERMO_COLn[6]" "XDAC.THERMO_COLn[7]" "XDAC.THERMO_COLn[8]" "XDAC.THERMO_COLn[9]" "XDAC.THERMO_COLn[10]" "XDAC.THERMO_COLn[11]" "XDAC.THERMO_COLn[12]" "XDAC.THERMO_COLn[13]" "XDAC.THERMO_COLn[14]"
 				+ "XDAC.XThR.TA1" "XDAC.XThR.TA2" "XDAC.XThR.TA3" "XDAC.XThR.TAN" "XDAC.XThR.TAN2" "XDAC.XThR.TB1" "XDAC.XThR.TB2" "XDAC.XThR.TB3" "XDAC.XThR.TB4" "XDAC.XThR.TB5" "XDAC.XThR.TB6" "XDAC.XThR.TB7" "XDAC.XThR.TBN"
@@ -154,12 +156,12 @@ value="
 spice_ignore=false}
 C {lab_pin.sym} 840 -1100 0 0 {name=p7 sig_type=std_logic lab=VGND}
 C {devices/vsource.sym} 840 -1070 0 0 {name=Vvgnd value="0" savecurrent=false}
-C {csdac255.sym} 260 -740 0 0 {name=XDAC}
+C {csdac255.sym} 260 -640 0 0 {name=XDAC}
 C {lab_pin.sym} 440 -910 0 1 {name=p2 sig_type=std_logic lab=Vout}
-C {lab_pin.sym} 150 -770 0 0 {name=p4 sig_type=std_logic lab=DATA[7:0]}
-C {lab_pin.sym} 370 -750 0 1 {name=p9 sig_type=std_logic lab=VPWR}
-C {lab_pin.sym} 370 -730 0 1 {name=p11 sig_type=std_logic lab=VGND}
-C {lab_pin.sym} 370 -710 0 1 {name=p12 sig_type=std_logic lab=Vbias}
+C {lab_pin.sym} 150 -670 0 0 {name=p4 sig_type=std_logic lab=DATA[7:0]}
+C {lab_pin.sym} 370 -650 0 1 {name=p9 sig_type=std_logic lab=VPWR}
+C {lab_pin.sym} 370 -630 0 1 {name=p11 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 370 -610 0 1 {name=p12 sig_type=std_logic lab=Vbias}
 C {tt_pin_model.sym} 200 -890 0 0 {name=XTTPIN}
 C {lab_pin.sym} 110 -870 0 0 {name=p13 sig_type=std_logic lab=VAPWR}
 C {lab_pin.sym} 290 -870 0 1 {name=p14 sig_type=std_logic lab=VGND}
@@ -176,14 +178,14 @@ value=3p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 370 -850 0 0 {name=l5 lab=VGND}
-C {devices/lab_pin.sym} 90 -700 0 0 {name=p20 sig_type=std_logic lab=bias[2:0]}
+C {devices/lab_pin.sym} 90 -600 0 0 {name=p20 sig_type=std_logic lab=bias[2:0]}
 C {devices/gnd.sym} 1080 -1040 0 0 {name=l1 lab=VGND}
 C {devices/gnd.sym} 960 -1040 0 0 {name=l3 lab=VGND}
 C {devices/launcher.sym} 560 -30 0 0 {name=h2
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/tb_csdac255_all.raw tran"
 }
-C {res.sym} 120 -700 1 0 {name=Rbias[2:0]
+C {res.sym} 120 -600 1 0 {name=Rbias[2:0]
 value=10k
 footprint=1206
 device=resistor
@@ -198,32 +200,25 @@ value=10k
 footprint=1206
 device=resistor
 m=1}
-C {lab_pin.sym} 440 -350 0 1 {name=p17 sig_type=std_logic lab=Vout_pex}
-C {tt_pin_model.sym} 200 -330 0 0 {name=XTTPIN_PEX}
-C {lab_pin.sym} 110 -310 0 0 {name=p18 sig_type=std_logic lab=VAPWR}
-C {lab_pin.sym} 290 -310 0 1 {name=p19 sig_type=std_logic lab=VGND}
-C {res.sym} 410 -400 0 0 {name=R1
+C {lab_pin.sym} 440 -400 0 1 {name=p17 sig_type=std_logic lab=Vout_pex}
+C {tt_pin_model.sym} 200 -380 0 0 {name=XTTPIN_PEX}
+C {lab_pin.sym} 110 -360 0 0 {name=p18 sig_type=std_logic lab=VAPWR}
+C {lab_pin.sym} 290 -360 0 1 {name=p19 sig_type=std_logic lab=VGND}
+C {res.sym} 410 -450 0 0 {name=R1
 value=500
 footprint=1206
 device=resistor
 m=1}
-C {devices/vsource.sym} 410 -480 0 0 {name=Viout_pex value="0" savecurrent=false}
-C {lab_pin.sym} 410 -530 0 1 {name=p21 sig_type=std_logic lab=VAPWR}
-C {devices/capa.sym} 370 -320 0 0 {name=C2
+C {devices/vsource.sym} 410 -530 0 0 {name=Viout_pex value="0" savecurrent=false}
+C {lab_pin.sym} 410 -580 0 1 {name=p21 sig_type=std_logic lab=VAPWR}
+C {devices/capa.sym} 370 -370 0 0 {name=C2
 m=1
 value=3p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/gnd.sym} 370 -290 0 0 {name=l4 lab=VGND}
+C {devices/gnd.sym} 370 -340 0 0 {name=l4 lab=VGND}
 C {csdac255.sym} 260 -180 0 0 {name=XDAC_PEX
-schematic=csdac255_parax.sim
-spice_sym_def="tcleval(.include [file normalize ../mag/csdac255.sim.spice])"
-tclcommand="textwindow [file normalize ../mag/csdac255.sim.spice]"}
-C {devices/vsource.sym} 50 -510 0 0 {name=Vvbpexhard value="1.21" savecurrent=false}
-C {lab_pin.sym} 50 -480 0 1 {name=p22 sig_type=std_logic lab=VGND}
-C {lab_pin.sym} 50 -600 0 1 {name=p23 sig_type=std_logic lab=Vbias_pex}
-C {res.sym} 50 -570 0 0 {name=R3
-value=100
-footprint=1206
-device=resistor
-m=1}
+}
+C {lab_pin.sym} 260 -230 3 1 {name=p22 sig_type=std_logic lab=VPWR}
+C {devices/vsource.sym} 260 -720 0 0 {name=VbPWRmon value="0" savecurrent=false}
+C {lab_pin.sym} 260 -750 0 0 {name=p23 sig_type=std_logic lab=VPWR}

@@ -9,6 +9,12 @@ dash=4}
 T {Binary-weighted current sources
 (with M4 as offset) as current
 ref to set Vbias} 30 -610 0 0 0.3 0.3 {}
+T {0.5/1
+0.5/2
+0.5/4
+0.5/4
+
+2.5/1} 420 -390 0 0 0.4 0.4 {}
 N 130 -170 130 -140 {
 lab=Vbias}
 N 310 -470 310 -440 {
@@ -46,8 +52,8 @@ C {iopin.sym} 510 -520 0 1 {name=p5 lab=VGND}
 C {devices/lab_pin.sym} 310 -540 0 0 {name=p2 sig_type=std_logic lab=VPWR}
 C {devices/lab_pin.sym} 90 -500 0 0 {name=p21 sig_type=std_logic lab=bias[2]}
 C {sky130_fd_pr/pfet3_01v8.sym} 290 -500 0 0 {name=M1
-W=0.5
-L=1
+W=2
+L=0.35
 body=VPWR
 nf=1
 mult=1
@@ -63,8 +69,8 @@ spiceprefix=X
 C {devices/lab_pin.sym} 250 -460 0 0 {name=p40 sig_type=std_logic lab=VPWR}
 C {devices/lab_pin.sym} 90 -420 0 0 {name=p46 sig_type=std_logic lab=bias[1]}
 C {sky130_fd_pr/pfet3_01v8.sym} 230 -420 0 0 {name=M2
-W=0.5
-L=2
+W=2
+L=0.7
 body=VPWR
 nf=1
 mult=1
@@ -80,8 +86,8 @@ spiceprefix=X
 C {devices/lab_pin.sym} 190 -380 0 0 {name=p47 sig_type=std_logic lab=VPWR}
 C {devices/lab_pin.sym} 90 -340 0 0 {name=p48 sig_type=std_logic lab=bias[0]}
 C {sky130_fd_pr/pfet3_01v8.sym} 170 -340 0 0 {name=M3
-W=0.5
-L=4
+W=2
+L=1.4
 body=VPWR
 nf=1
 mult=1
@@ -98,8 +104,8 @@ C {lab_pin.sym} 130 -40 0 0 {name=p6 sig_type=std_logic lab=VGND}
 C {ipin.sym} 510 -480 0 0 {name=p7 lab=bias[2:0]}
 C {opin.sym} 420 -110 0 0 {name=p26 lab=Vbias}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 150 -110 0 1 {name=Mmirror
-W=2.5
-L=1.0
+W=7.5
+L=0.5
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -113,8 +119,8 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} 130 -300 0 0 {name=p4 sig_type=std_logic lab=VPWR}
 C {sky130_fd_pr/pfet3_01v8.sym} 110 -260 0 0 {name=M4
-W=0.5
-L=4
+W=2
+L=1.4
 body=VPWR
 nf=1
 mult=1

@@ -12,9 +12,10 @@ N 820 -340 820 -150 {lab=Vbias}
 N 820 -150 880 -150 {lab=Vbias}
 N 820 -420 820 -380 {lab=THERMO_ROWn[14:0]}
 N 800 -240 840 -240 {lab=THERMO_COLn[14:0]}
-N 820 -150 820 -120 {lab=Vbias}
-N 820 -60 820 -40 {lab=VGND}
-N 420 -150 820 -150 {lab=Vbias}
+N 420 -150 640 -150 {lab=Vbias}
+N 700 -150 820 -150 {lab=Vbias}
+N 200 -320 440 -320 {lab=data[3:0]}
+N 640 -150 700 -150 {lab=Vbias}
 C {thermo15.sym} 590 -420 0 0 {name=XThR}
 C {array255x.sym} 970 -360 0 0 {name=XA}
 C {thermo15.sym} 590 -280 0 0 {name=XThC}
@@ -35,14 +36,6 @@ C {opin.sym} 880 -150 0 0 {name=p26 lab=Vbias}
 C {lab_pin.sym} 820 -420 0 1 {name=p10 sig_type=std_logic lab=THERMO_ROWn[14:0]}
 C {lab_pin.sym} 840 -240 0 1 {name=p27 sig_type=std_logic lab=THERMO_COLn[14:0]}
 C {vbias.sym} 320 -170 0 0 {name=XVB}
-C {lab_pin.sym} 420 -190 0 1 {name=p2 sig_type=std_logic lab=VPWR}
+C {lab_pin.sym} 420 -190 0 1 {name=p2 sig_type=std_logic lab=VbPWR}
 C {lab_pin.sym} 420 -170 0 1 {name=p4 sig_type=std_logic lab=VGND}
-C {lab_pin.sym} 820 -40 0 1 {name=p6 sig_type=std_logic lab=VGND}
-C {capa.sym} 820 -90 0 0 {name=C1
-m=1
-value=100f
-footprint=1206
-device="ceramic capacitor"}
-C {sky130_stdcells/dlygate4sd3_1.sym} 400 -320 0 0 {name=XDLYC[3:0] VGND=VGND VNB=VGND VPB=VPWR VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130_stdcells/dlygate4sd3_1.sym} 320 -320 0 0 {name=XDLYC1[3:0] VGND=VGND VNB=VGND VPB=VPWR VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130_stdcells/dlygate4sd3_1.sym} 240 -320 0 0 {name=XDLYC2[3:0] VGND=VGND VNB=VGND VPB=VPWR VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {iopin.sym} 310 -250 0 1 {name=p6 lab=VbPWR}
